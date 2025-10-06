@@ -1,26 +1,207 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@import 'tailwindcss';
+@tailwind utilities;
+@import 'tw-animate-css';
+@plugin "daisyui" {
+  themes: synthwave;
+  root: '#daisy-scope';
+  prefix: 'ds-';
 }
+
+@plugin "daisyui/theme" {
+  name: 'synthwave';
+  default: true;
+
+  --color-base-100: #0e1a61;
+  --color-base-200: oklch(0.285 0.125 268.2);
+  --color-base-300: oklch(0.376 0.125 268.2);
+  --color-base-content: oklch(93% 0.032 255.585);
+  --color-primary: #7d9bee;
+  --color-primary-content: oklch(28% 0.091 267.935);
+  --color-secondary: oklch(82% 0.111 230.318);
+  --color-secondary-content: oklch(29% 0.066 243.157);
+  --color-accent: oklch(75% 0.183 55.934);
+  --color-accent-content: oklch(26% 0.079 36.259);
+  --color-neutral: #002fff;
+  --color-neutral-content: oklch(87% 0.065 274.039);
+  --color-info: oklch(74% 0.16 232.661);
+  --color-info-content: oklch(29% 0.066 243.157);
+  --color-success: oklch(77% 0.152 181.912);
+  --color-success-content: oklch(27% 0.046 192.524);
+  --color-warning: oklch(90% 0.182 98.111);
+  --color-warning-content: oklch(42% 0.095 57.708);
+  --color-error: oklch(73.7% 0.121 32.639);
+  --color-error-content: oklch(23.501% 0.096 290.329);
+}
+
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--color-base-100);
+  --color-foreground: var(--color-base-content);
+
+  --color-card: var(--color-base-200);
+  --color-card-foreground: var(--color-base-content);
+
+  --color-popover: var(--color-base-300);
+  --color-popover-foreground: var(--color-base-content);
+
+  --color-primary: var(--color-primary);
+  --color-primary-foreground: var(--color-primary-content);
+
+  --color-secondary: var(--color-secondary);
+  --color-secondary-foreground: var(--color-secondary-content);
+
+  --color-accent: var(--color-accent);
+  --color-accent-foreground: var(--color-accent-content);
+
+  --color-muted: var(--color-neutral);
+  --color-muted-foreground: var(--color-neutral-content);
+
+  --color-destructive: var(--color-error);
+  --color-destructive-foreground: var(--color-error-content);
+
+  --color-border: var(--border);
+  --color-input: var(--color-base-300);
+  --color-ring: var(--color-info);
+
+  --font-sans: var(--font-poppins, ui-sans-serif, system-ui, sans-serif);
+  --font-display: var(--font-yellowtail, ui-sans-serif, system-ui);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  /* DaisyUI theme variables */
+  --color-base-100: #0e1a61;
+  --color-base-200: oklch(0.285 0.125 268.2);
+  --color-base-300: oklch(0.376 0.125 268.2);
+  --color-base-content: oklch(93% 0.032 255.585);
+  --color-primary: #7d9bee;
+  --color-primary-content: oklch(28% 0.091 267.935);
+  --color-secondary: oklch(82% 0.111 230.318);
+  --color-secondary-content: oklch(29% 0.066 243.157);
+  --color-accent: oklch(75% 0.183 55.934);
+  --color-accent-content: oklch(26% 0.079 36.259);
+  --color-neutral: #002fff;
+  --color-neutral-content: oklch(87% 0.065 274.039);
+  --color-info: oklch(74% 0.16 232.661);
+  --color-info-content: oklch(29% 0.066 243.157);
+  --color-success: oklch(77% 0.152 181.912);
+  --color-success-content: oklch(27% 0.046 192.524);
+  --color-warning: oklch(90% 0.182 98.111);
+  --color-warning-content: oklch(42% 0.095 57.708);
+  --color-error: oklch(73.7% 0.121 32.639);
+  --color-error-content: oklch(23.501% 0.096 290.329);
+  --ds-root-bg: none;
+
+  /* Radius, size, depth */
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.5rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.3125rem;
+  --border: 1.5px;
+  --depth: 1;
+  --noise: 1;
+
+  /* Tailwind semantic tokens (mapped to DaisyUI) */
+  /* --background: var(--color-base-100);
+  --foreground: var(--color-base-content); */
+
+  --card: var(--color-base-200);
+  --card-foreground: var(--color-base-content);
+
+  --popover: var(--color-base-200);
+  --popover-foreground: var(--color-base-content);
+
+  --primary: var(--color-primary);
+  --primary-foreground: var(--color-primary-content);
+
+  --secondary: var(--color-secondary);
+  --secondary-foreground: var(--color-secondary-content);
+
+  --accent: var(--color-accent);
+  --accent-foreground: var(--color-accent-content);
+
+  --muted: var(--color-neutral);
+  --muted-foreground: var(--color-neutral-content);
+
+  --destructive: var(--color-error);
+  --destructive-foreground: var(--color-error-content);
+
+  --border: var(--border);
+  --input: var(--color-base-300);
+  --ring: var(--color-info);
+
+  /* Custom tokens */
+  --gradient-primary: linear-gradient(135deg, hsl(263 70% 50%), hsl(293 69% 49%));
+  --gradient-secondary: linear-gradient(135deg, hsl(193 76% 60%), hsl(210 100% 70%));
+  --gradient-background: linear-gradient(180deg, hsl(240 10% 3.9%), hsl(240 8% 6%));
+  --glass-background: hsla(240, 10%, 10%, 0.7);
+  --glass-border: hsla(0, 0%, 100%, 0.1);
+  --shadow-glow: 0 0 50px hsla(263, 70%, 50%, 0.3);
+  --shadow-card: 0 8px 32px hsla(0, 0%, 0%, 0.3);
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark {
+  /* --background: var(--color-base-100);
+  --foreground: var(--color-base-content); */
+
+  --card: var(--color-base-200);
+  --card-foreground: var(--color-base-content);
+
+  --popover: var(--color-base-200);
+  --popover-foreground: var(--color-base-content);
+
+  --primary: var(--color-primary);
+  --primary-foreground: var(--color-primary-content);
+
+  --secondary: var(--color-secondary);
+  --secondary-foreground: var(--color-secondary-content);
+
+  --accent: var(--color-accent);
+  --accent-foreground: var(--color-accent-content);
+
+  --muted: var(--color-neutral);
+  --muted-foreground: var(--color-neutral-content);
+
+  --destructive: var(--color-error);
+  --destructive-foreground: var(--color-error-content);
+
+  --border: var(--border);
+  --input: var(--color-base-300);
+  --ring: var(--color-info);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* 
+---break--- */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  @keyframes short-bounce {
+    0%,
+    100% {
+      transform: translateY(-20%); /* small lift */
+      animation-timing-function: cubic-bezier(0.8, 0, 1, 1); /* easing for down */
+    }
+    50% {
+      transform: translateY(0); /* back to rest */
+      animation-timing-function: cubic-bezier(0, 0, 0.2, 1); /* easing for up */
+    }
+  }
+
+  .animate-short-bounce {
+    animation: short-bounce 2s infinite; /* faster & smaller than default */
+  }
 }
