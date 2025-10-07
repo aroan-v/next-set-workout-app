@@ -11,26 +11,26 @@
   name: 'synthwave';
   default: true;
 
-  --color-base-100: #0e1a61;
-  --color-base-200: oklch(0.285 0.125 268.2);
-  --color-base-300: oklch(0.376 0.125 268.2);
-  --color-base-content: oklch(93% 0.032 255.585);
-  --color-primary: #7d9bee;
-  --color-primary-content: oklch(28% 0.091 267.935);
-  --color-secondary: oklch(82% 0.111 230.318);
-  --color-secondary-content: oklch(29% 0.066 243.157);
-  --color-accent: oklch(75% 0.183 55.934);
-  --color-accent-content: oklch(26% 0.079 36.259);
-  --color-neutral: #002fff;
-  --color-neutral-content: oklch(87% 0.065 274.039);
-  --color-info: oklch(74% 0.16 232.661);
-  --color-info-content: oklch(29% 0.066 243.157);
-  --color-success: oklch(77% 0.152 181.912);
-  --color-success-content: oklch(27% 0.046 192.524);
-  --color-warning: oklch(90% 0.182 98.111);
-  --color-warning-content: oklch(42% 0.095 57.708);
-  --color-error: oklch(73.7% 0.121 32.639);
-  --color-error-content: oklch(23.501% 0.096 290.329);
+  --color-base-100: oklch(14% 0.005 285.823);
+  --color-base-200: oklch(21% 0.006 285.885);
+  --color-base-300: oklch(27% 0.006 286.033);
+  --color-base-content: oklch(96% 0.001 286.375);
+  --color-primary: oklch(76% 0.188 70.08);
+  --color-primary-content: oklch(98% 0.022 95.277);
+  --color-secondary: oklch(55% 0 0);
+  --color-secondary-content: oklch(98% 0 0);
+  --color-accent: oklch(60% 0.25 292.717);
+  --color-accent-content: oklch(96% 0.016 293.756);
+  --color-neutral: oklch(27% 0.006 286.033);
+  --color-neutral-content: oklch(98% 0 0);
+  --color-info: oklch(58% 0.158 241.966);
+  --color-info-content: oklch(97% 0.013 236.62);
+  --color-success: oklch(59% 0.145 163.225);
+  --color-success-content: oklch(97% 0.021 166.113);
+  --color-warning: oklch(66% 0.179 58.318);
+  --color-warning-content: oklch(98% 0.022 95.277);
+  --color-error: oklch(57% 0.245 27.325);
+  --color-error-content: oklch(97% 0.013 17.38);
 }
 
 @custom-variant dark (&:is(.dark *));
@@ -70,26 +70,26 @@
 
 :root {
   /* DaisyUI theme variables */
-  --color-base-100: #0e1a61;
-  --color-base-200: oklch(0.285 0.125 268.2);
-  --color-base-300: oklch(0.376 0.125 268.2);
-  --color-base-content: oklch(93% 0.032 255.585);
-  --color-primary: #7d9bee;
-  --color-primary-content: oklch(28% 0.091 267.935);
-  --color-secondary: oklch(82% 0.111 230.318);
-  --color-secondary-content: oklch(29% 0.066 243.157);
-  --color-accent: oklch(75% 0.183 55.934);
-  --color-accent-content: oklch(26% 0.079 36.259);
-  --color-neutral: #002fff;
-  --color-neutral-content: oklch(87% 0.065 274.039);
-  --color-info: oklch(74% 0.16 232.661);
-  --color-info-content: oklch(29% 0.066 243.157);
-  --color-success: oklch(77% 0.152 181.912);
-  --color-success-content: oklch(27% 0.046 192.524);
-  --color-warning: oklch(90% 0.182 98.111);
-  --color-warning-content: oklch(42% 0.095 57.708);
-  --color-error: oklch(73.7% 0.121 32.639);
-  --color-error-content: oklch(23.501% 0.096 290.329);
+  --color-base-100: oklch(14% 0.005 285.823);
+  --color-base-200: oklch(21% 0.006 285.885);
+  --color-base-300: oklch(27% 0.006 286.033);
+  --color-base-content: oklch(96% 0.001 286.375);
+  --color-primary: oklch(76% 0.188 70.08);
+  --color-primary-content: oklch(98% 0.022 95.277);
+  --color-secondary: oklch(55% 0 0);
+  --color-secondary-content: oklch(98% 0 0);
+  --color-accent: oklch(60% 0.25 292.717);
+  --color-accent-content: oklch(96% 0.016 293.756);
+  --color-neutral: oklch(27% 0.006 286.033);
+  --color-neutral-content: oklch(98% 0 0);
+  --color-info: oklch(58% 0.158 241.966);
+  --color-info-content: oklch(97% 0.013 236.62);
+  --color-success: oklch(59% 0.145 163.225);
+  --color-success-content: oklch(97% 0.021 166.113);
+  --color-warning: oklch(66% 0.179 58.318);
+  --color-warning-content: oklch(98% 0.022 95.277);
+  --color-error: oklch(57% 0.245 27.325);
+  --color-error-content: oklch(97% 0.013 17.38);
   --ds-root-bg: none;
 
   /* Radius, size, depth */

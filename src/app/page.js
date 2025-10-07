@@ -6,6 +6,7 @@ import Steps from '@/components/Steps'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import { devLog } from '@/lib/logger'
+import { useRouter } from 'next/navigation'
 
 const carouselContent = [
   {
@@ -84,10 +85,14 @@ const carouselContent = [
 
 export default function Home() {
   const [carouselIndex, setCarouselIndex] = React.useState(0)
+  const router = useRouter()
 
   function handleCarousel() {
     devLog(carouselIndex)
-    if (carouselIndex >= carouselContent.length - 1) return
+    if (carouselIndex >= carouselContent.length - 1) {
+      router.push('/home')
+      return
+    }
 
     setCarouselIndex((p) => p + 1)
   }
@@ -107,7 +112,7 @@ export default function Home() {
       </div>
 
       <Button size={'glass'} onClick={handleCarousel} variant={'glass'}>
-        Next
+        {carouselIndex === carouselContent.length - 1 ? 'Get Started!' : 'Next'}
       </Button>
 
       {/* BG container */}
