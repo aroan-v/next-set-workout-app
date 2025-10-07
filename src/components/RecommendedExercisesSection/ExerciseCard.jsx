@@ -1,22 +1,27 @@
-import Image from 'next/image'
+import { devLog } from '@/lib/logger'
+import { Card, CardContent, CardImageContainer, CardTitle } from '../ui/card'
 
-export default function ExerciseCard() {
+export default function ExerciseCard({ contentObject }) {
+  devLog(contentObject)
+  const { src, alt, title, minutes, kcal } = contentObject
+
+  if (!title) {
+    return
+  }
+
   return (
-    <div className="bg-base-300 w-[200px] overflow-hidden rounded-xl">
-      {/* Image Container */}
-      <div className="relative aspect-video border-transparent">
-        {/* The main div now handles everything: size, clipping, and radius */}
-        <Image src={'/images/exercises/squat-exercise.jpg'} fill className="object-cover" alt="" />
-      </div>
+    <Card>
+      {/* Image */}
+      <CardImageContainer src={src} alt={alt} />
 
-      <div className="space-y-1 p-3">
-        {/* Exercise Name */}
-        <div className="text-primary text-sm font-semibold">Squat Exercise</div>
+      {/* Content */}
+      <CardContent>
+        <CardTitle>{title}</CardTitle>
 
         {/* Stats */}
         <div className="flex justify-between text-xs *:flex *:items-center *:gap-1">
-          <div className="flex items-center gap-1">
-            {/* Clock SVG */}
+          {/* Duration */}
+          <div>
             <svg
               className="size-3"
               viewBox="0 0 9 9"
@@ -28,12 +33,11 @@ export default function ExerciseCard() {
                 fill="#7D9BEE"
               />
             </svg>
-            12 Minutes
+            {minutes} Minutes
           </div>
 
           {/* Kcal */}
           <div>
-            {/* Fire SVG */}
             <svg
               className="size-3"
               viewBox="0 0 7 9"
@@ -49,10 +53,10 @@ export default function ExerciseCard() {
                 fill="#7D9BEE"
               />
             </svg>
-            120 kCal
+            {kcal} kCal
           </div>
         </div>
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   )
 }

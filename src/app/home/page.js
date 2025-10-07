@@ -1,3 +1,4 @@
+import ArticlesSection from '@/components/ArticlesSection'
 import DaisyWrapper from '@/components/DaisyWrapper'
 import Dock from '@/components/Dock'
 import RecommendedExercisesSection from '@/components/RecommendedExercisesSection'
@@ -9,7 +10,7 @@ export default function HomePage() {
     <section className="bg-base-100 relative flex h-full min-h-screen w-full flex-col justify-center gap-8">
       <RecommendedExercisesSection />
       <WeeklyChallengeSection />
-
+      <ArticlesSection />
       <Dock />
     </section>
   )
