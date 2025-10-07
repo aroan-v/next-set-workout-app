@@ -7,11 +7,10 @@ import WeeklyChallengeSection from '@/components/WeeklyChallengeSection'
 
 export default function HomePage() {
   return (
-    <section className="bg-base-100 relative flex h-full min-h-screen w-full flex-col justify-center gap-8">
+    <main className="bg-base-100 relative flex h-full min-h-screen w-full flex-col justify-center gap-8 pb-30">
       <RecommendedExercisesSection />
       <WeeklyChallengeSection />
       <ArticlesSection />
-      <Dock />
-    </section>
+    </main>
   )
 }
