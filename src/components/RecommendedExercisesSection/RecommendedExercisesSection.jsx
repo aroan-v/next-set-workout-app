@@ -1,7 +1,6 @@
 import React from 'react'
 import SectionWrapper from '../SectionWrapper'
-import { devLog } from '@/lib/logger'
-import ExerciseCard from './ExerciseCard'
+import RecommendedExerciseCard from './RecommendedExerciseCard'
 import SectionHeading from '../SectionHeading'
 import SectionContent from '../SectionWrapper/SectionContent'
 
@@ -31,7 +30,7 @@ function RecommendedExercisesSection() {
 
       <SectionContent>
         {exercises.map((obj) => (
-          <ExerciseCard contentObject={obj} key={obj.title} />
+          <RecommendedExerciseCard contentObject={obj} key={obj.title} />
         ))}
       </SectionContent>
     </SectionWrapper>

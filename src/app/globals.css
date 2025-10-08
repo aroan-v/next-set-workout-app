@@ -204,3 +204,10 @@ html {
     animation: short-bounce 2s infinite; /* faster & smaller than default */
   }
 }
+
+/* User defined - for layout */
+
+.debug {
+  border: 2px dashed #00ffff; /* bright cyan for visibility */
+  outline: 2px dashed #ff00ff; /* optional, helps see overlapping elements */
+}

@@ -1,3 +1,4 @@
+import React from 'react'
 import { Poppins, Inter } from 'next/font/google'
 import '@/app/globals.css'
 import Dock from '@/components/Dock'

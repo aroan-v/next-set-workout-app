@@ -1,7 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
 import { SVGDurationIcon, SVGFireIcon, SVGRunningIcon } from '../SVGIcons'
+
+WorkoutStats.propTypes = {
+  minutes: PropTypes.number,
+  kCal: PropTypes.number,
+  exercises: PropTypes.number,
+}
+
+/**
+ * WorkoutStats Component
+ * @param {number} duration - Total minutes of workout
+ * @param {number} kCal - Calories burned
+ * @param {number} exercises - Total number of exercises
+ */
 
 function WorkoutStats({ minutes, kCal, exercises }) {
   return (
@@ -16,7 +28,7 @@ function WorkoutStats({ minutes, kCal, exercises }) {
       {kCal && (
         <div>
           <SVGFireIcon className={'size-3 text-white'} />
-          {kCal} kCal
+          {kCal.toLocaleString()} kCal
         </div>
       )}
 
@@ -28,12 +40,6 @@ function WorkoutStats({ minutes, kCal, exercises }) {
       )}
     </div>
   )
-}
-
-WorkoutStats.propTypes = {
-  minutes: PropTypes.number,
-  kCal: PropTypes.number,
-  exercises: PropTypes.number,
 }
 
 export default WorkoutStats
