@@ -1,4 +1,3 @@
-'use client'
 import React from 'react'
 import SectionWrapper from '../SectionWrapper'
 import { devLog } from '@/lib/logger'
@@ -24,19 +23,6 @@ export const exercises = [
 ]
 
 function RecommendedExercisesSection() {
-  React.useEffect(() => {
-    async function fetchData() {
-      const res = await fetch('/api/exercises')
-
-      if (!res.ok) throw new Error('Failed to fetch exercises!')
-
-      const data = await res.json()
-      devLog('data', data)
-    }
-
-    fetchData()
-  }, [])
-
   return (
     <SectionWrapper as="section">
       <SectionHeading content={'Recommendations'} />
