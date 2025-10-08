@@ -1,3 +1,4 @@
+import React from 'react'
 import ArticlesSection from '@/components/ArticlesSection'
 import DaisyWrapper from '@/components/DaisyWrapper'
 import Dock from '@/components/Dock'

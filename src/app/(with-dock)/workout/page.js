@@ -1,10 +1,10 @@
 'use client'
-import ButtonPreview from '@/components/ButtonPreview'
 import DailyChallengeSection from '@/components/DailyChallengeSection'
 import PageHeader from '@/components/PageHeader'
+import SectionHeading from '@/components/SectionHeading'
 import SectionWrapper from '@/components/SectionWrapper'
 import { Button } from '@/components/ui/button'
-import WeeklyChallengeSection from '@/components/WeeklyChallengeSection'
+import WorkoutRoutinesSection from '@/components/WorkoutRoutinesSection'
 import { devLog } from '@/lib/logger'
 import React from 'react'
 
@@ -42,7 +42,19 @@ export default function ExplorePage() {
         ))}
       </SectionWrapper>
 
+      {/* Daily Challenge Section */}
       <DailyChallengeSection />
+
+      {/* Workouts Section */}
+
+      <SectionWrapper as="section">
+        <SectionHeading
+          content={`Let's go Beginner!`}
+          subheading={'Explore Different Workout Styles'}
+        />
+
+        <WorkoutRoutinesSection />
+      </SectionWrapper>
     </main>
   )
 }
