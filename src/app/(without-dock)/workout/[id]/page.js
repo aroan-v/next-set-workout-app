@@ -21,7 +21,7 @@ export default function Page({ params }) {
       if (!res.ok) throw new Error('Failed to fetch exercises!')
 
       const data = await res.json()
-      const slicedData = data.slice(0, 1)
+      const slicedData = data.slice(0, 5)
 
       devLog('data.slice(0,10', data.slice(0, 15))
       setData(slicedData)
@@ -34,7 +34,7 @@ export default function Page({ params }) {
     <div className="min-h-screen border">
       My Post: {id}
       {/* ExerciseCard */}
-      <div className="debug flex flex-col gap-4 p-4">
+      <div className="flex flex-col gap-4 p-4">
         {data?.map((obj, index) => (
           <ExerciseCard key={index} contentObj={obj} />
         ))}
