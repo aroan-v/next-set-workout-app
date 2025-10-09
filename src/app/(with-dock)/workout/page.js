@@ -1,5 +1,6 @@
 'use client'
 import DailyChallengeSection from '@/components/DailyChallengeSection'
+import MainWrapper from '@/components/MainWrapper'
 import PageHeader from '@/components/PageHeader'
 import SectionHeading from '@/components/SectionHeading'
 import SectionWrapper from '@/components/SectionWrapper'
@@ -13,7 +14,7 @@ export default function ExplorePage() {
   const [currentLevel, setCurrentLevel] = React.useState(levels[0])
 
   return (
-    <main className="bg-base-100 relative flex h-full min-h-screen w-full flex-col justify-start gap-8 pt-10 pb-30">
+    <MainWrapper>
       <PageHeader titleContent={'Workout'} />
 
       {/* Level Section */}
@@ -34,7 +35,6 @@ export default function ExplorePage() {
       <DailyChallengeSection />
 
       {/* Workouts Section */}
-
       <SectionWrapper as="section">
         <SectionHeading
           content={`Let's go Beginner!`}
@@ -43,6 +43,6 @@ export default function ExplorePage() {
 
         <WorkoutRoutinesSection />
       </SectionWrapper>
-    </main>
+    </MainWrapper>
   )
 }

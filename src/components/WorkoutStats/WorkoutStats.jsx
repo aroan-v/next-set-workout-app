@@ -6,6 +6,7 @@ WorkoutStats.propTypes = {
   minutes: PropTypes.number,
   kCal: PropTypes.number,
   exercises: PropTypes.number,
+  variant: PropTypes.string,
 }
 
 /**
@@ -13,33 +14,51 @@ WorkoutStats.propTypes = {
  * @param {number} duration - Total minutes of workout
  * @param {number} kCal - Calories burned
  * @param {number} exercises - Total number of exercises
+ * @param {number} variant - Variants of the text and icons
  */
+import { cn } from '@/lib/utils' // Assuming you have this utility for merging classes
 
-function WorkoutStats({ minutes, kCal, exercises }) {
+// Define the class map outside the component to avoid re-creation on every render
+const variantClasses = {
+  sm: {
+    container: 'text-xs max-w-2xs justify-between',
+    icon: 'size-3',
+  },
+  lg: {
+    container: 'text-md gap-4 ',
+    icon: 'size-5',
+  },
+}
+
+function WorkoutStats({ minutes, kCal, exercises, variant = 'sm' }) {
+  const { container, icon } = variantClasses[variant] || variantClasses.sm
+
   return (
-    <div className="flex max-w-2xs flex-wrap justify-between text-xs *:flex *:items-center *:gap-1">
+    <div className={cn('flex w-full flex-wrap *:flex *:items-center *:gap-1', container)}>
       {minutes && (
         <div>
-          <SVGDurationIcon className={'size-3 text-white'} />
+          {/* Use the dynamic icon size */}
+          <SVGDurationIcon className={cn(icon, 'text-white')} />
           {minutes} minutes
         </div>
       )}
 
       {kCal && (
         <div>
-          <SVGFireIcon className={'size-3 text-white'} />
+          {/* Use the dynamic icon size */}
+          <SVGFireIcon className={cn(icon, 'text-white')} />
           {kCal.toLocaleString()} kCal
         </div>
       )}
 
       {exercises && (
         <div>
-          <SVGRunningIcon className={'size-3 text-white'} />
+          {/* Use the dynamic icon size */}
+          <SVGRunningIcon className={cn(icon, 'text-white')} />
           {exercises} exercises
         </div>
       )}
     </div>
   )
 }
-
 export default WorkoutStats

@@ -1,9 +1,11 @@
+'use client'
 import { geGithubImage } from '@/lib/getGithubImage'
 import { devLog } from '@/lib/logger'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import React from 'react'
 import { ExerciseTable } from './ExerciseTable'
+import { CircleChevronDown, CircleChevronUp } from 'lucide-react'
 
 function ExerciseCard({ contentObj }) {
   devLog('contentObj', contentObj)
@@ -25,8 +27,12 @@ function ExerciseCard({ contentObj }) {
       <button onClick={() => setIsOpen((p) => !p)}>
         <div className="flex h-fit w-full items-center rounded-lg">
           {/* Content */}
-          <div className="flex flex-1 flex-col justify-center gap-2 p-4">
+          <div className="relative flex h-full flex-1 flex-col justify-center gap-2 p-4">
+            {/* Exercise Name */}
             <div className="text-md text-left">{name}</div>
+
+            {/* Number of Sets */}
+            <div></div>
 
             {/* Tags */}
             <div className="flex flex-wrap gap-2">
@@ -38,6 +44,12 @@ function ExerciseCard({ contentObj }) {
                   {muscle}
                 </div>
               ))}
+            </div>
+
+            {/* Chevron Icon */}
+            <div className="absolute right-2 -bottom-1">
+              {!isOpen && <CircleChevronDown className="size-4" />}
+              {isOpen && <CircleChevronUp className="size-4" />}
             </div>
           </div>
 
@@ -61,5 +73,7 @@ function ExerciseCard({ contentObj }) {
 export default React.memo(ExerciseCard)
 
 function ImageContainer({ imageSrc, name }) {
+  devLog('ImageContainer rendered')
+
   return <Image src={imageSrc} alt={name} fill sizes="160px" className="object-cover" />
 }
