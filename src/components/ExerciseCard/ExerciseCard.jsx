@@ -50,7 +50,7 @@ function ExerciseCard({ contentObj }) {
 
       {/* Table */}
       {isOpen && (
-        <div className="bg-base-300 p-4">
+        <div className="bg-base-300 py-4">
           <ExerciseTable />
         </div>
       )}

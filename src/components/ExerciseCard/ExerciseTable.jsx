@@ -1,16 +1,9 @@
 import React from 'react'
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table'
+import { Table, TableBody } from '@/components/ui/table'
 import { produce } from 'immer'
 import { devLog } from '@/lib/logger'
-import { Input } from '../ui/input'
-import { Checkbox } from '../ui/checkbox'
+import ExerciseHeader from './ExerciseHeader'
+import ExerciseRow from './ExerciseRow'
 
 const initialSet = [
   { id: 1, weight: 20, reps: 10, isDone: true },
@@ -53,57 +46,6 @@ function reducer(state, action) {
   })
 }
 
-function ExerciseRow({ set, handleInputChange, handleUpdateStatus }) {
-  devLog('ExerciseRow rerendered')
-
-  return (
-    <TableRow key={set.id}>
-      <TableCell className="font-medium">{set.id}</TableCell>
-
-      {/* Weight */}
-      <TableCell>
-        <Input
-          type={'number'}
-          value={set.weight}
-          onChange={(e) =>
-            handleInputChange({ value: e.target.value, id: set.id, category: 'weight' })
-          }
-        />
-      </TableCell>
-
-      {/* Reps Input */}
-      <TableCell>
-        <Input
-          type={'number'}
-          value={set.reps}
-          onChange={(e) =>
-            handleInputChange({ value: e.target.value, id: set.id, category: 'reps' })
-          }
-        />
-      </TableCell>
-
-      {/* Status Input */}
-      <TableCell>
-        <Checkbox checked={set.isDone} onCheckedChange={() => handleUpdateStatus({ id: set.id })} />
-      </TableCell>
-    </TableRow>
-  )
-}
-const MemoizedExerciseRow = React.memo(ExerciseRow)
-
-function ExerciseHeader() {
-  return (
-    <TableHeader>
-      <TableRow>
-        <TableHead className="w-[10%">Sets</TableHead>
-        <TableHead className="w-[40%] p-1">Weight</TableHead>
-        <TableHead className="w-[40%] p-1">Reps</TableHead>
-        <TableHead className="w-[10%] p-1">Status</TableHead>
-      </TableRow>
-    </TableHeader>
-  )
-}
-
 export function ExerciseTable() {
   const [state, dispatch] = React.useReducer(reducer, initialSet)
 
@@ -118,15 +60,15 @@ export function ExerciseTable() {
   }, [])
 
   return (
-    <div className="bg-card text-card-foreground rounded-lg shadow-sm">
+    <div className="text-card-foreground rounded-lg">
       <Table>
         <ExerciseHeader />
-
         <TableBody>
-          {state?.map((set) => (
-            <MemoizedExerciseRow
+          {state?.map((set, index) => (
+            <ExerciseRow
               key={set.id}
               set={set}
+              className={`${index % 2 !== 0 && 'bg-base-200'}`}
               handleInputChange={handleInputChange}
               handleUpdateStatus={handleUpdateStatus}
             />

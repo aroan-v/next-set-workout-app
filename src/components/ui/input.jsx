@@ -9,7 +9,7 @@ function Input({ className, type, ...props }) {
       data-slot="input"
       className={cn(
         // ─── Base Layout & Sizing ───────────────────────────────
-        'h-9 w-full min-w-0 rounded-md px-3 py-1 text-center text-base md:text-sm',
+        'w-full min-w-0 rounded-md py-1 text-center text-base md:text-sm',
 
         // ─── Colors & Background ────────────────────────────────
         'dark:bg-input/30 border-input border bg-transparent file:bg-transparent',
