@@ -1,21 +1,20 @@
-import { devLog } from '@/lib/logger'
 import React from 'react'
 import { TableCell, TableRow } from '../ui/table'
 import { Input } from '../ui/input'
 import { Checkbox } from '../ui/checkbox'
 
-function ExerciseRow({ set, handleInputChange, handleUpdateStatus, className }) {
-  devLog('ExerciseRow rerendered')
+function ExerciseRow({ set, setNumber, handleInputChange, handleUpdateStatus, className }) {
+  const { weight, reps, isDone } = set
 
   return (
-    <TableRow key={set.id} className={`${className} overflow-hidden rounded-4xl`}>
-      <TableCell className="rounded-l-4xl pl-4 font-medium">{set.id}</TableCell>
+    <TableRow className={`${className} overflow-hidden rounded-4xl`}>
+      <TableCell className="rounded-l-4xl pl-4 font-medium">{setNumber}</TableCell>
 
       {/* Weight */}
       <TableCell>
         <Input
           type={'number'}
-          value={set.weight}
+          value={weight}
           onChange={(e) =>
             handleInputChange({ value: e.target.value, id: set.id, category: 'weight' })
           }
@@ -26,7 +25,7 @@ function ExerciseRow({ set, handleInputChange, handleUpdateStatus, className }) 
       <TableCell>
         <Input
           type={'number'}
-          value={set.reps}
+          value={reps}
           onChange={(e) =>
             handleInputChange({ value: e.target.value, id: set.id, category: 'reps' })
           }
@@ -35,7 +34,7 @@ function ExerciseRow({ set, handleInputChange, handleUpdateStatus, className }) 
 
       {/* Status Input */}
       <TableCell className={'rounded-r-4xl pr-4'}>
-        <Checkbox checked={set.isDone} onCheckedChange={() => handleUpdateStatus({ id: set.id })} />
+        <Checkbox checked={isDone} onCheckedChange={() => handleUpdateStatus({ id: set.id })} />
       </TableCell>
     </TableRow>
   )

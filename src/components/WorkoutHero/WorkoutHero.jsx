@@ -7,6 +7,7 @@ import { devLog } from '@/lib/logger'
 function WorkoutHero({ contentObj, className }) {
   const { src, name, alt, minutes, kCal, exercises } = contentObj
 
+  const exercisesLength = exercises.length
   devLog('WorkoutHero - name', name)
 
   return (
@@ -18,7 +19,7 @@ function WorkoutHero({ contentObj, className }) {
         <div className="text-primary text-3xl font-medium">{name}</div>
 
         {/* Workout Details */}
-        <WorkoutStats minutes={minutes} variant="lg" kCal={kCal} exercises={exercises} />
+        <WorkoutStats minutes={minutes} variant="lg" kCal={kCal} exercises={exercisesLength} />
       </div>
 
       {/* Overlay */}

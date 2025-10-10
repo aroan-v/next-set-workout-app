@@ -2,13 +2,13 @@
 import ExerciseCard from '@/components/ExerciseCard'
 import MainWrapper from '@/components/MainWrapper'
 import PageHeader from '@/components/PageHeader'
-import { workoutRoutines } from '@/data/sampleData'
+import { workoutRoutinesV2 } from '@/data/sampleData'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { notFound } from 'next/navigation'
 import { getExercises } from '@/lib/getExercises'
 import WorkoutHero from '@/components/WorkoutHero'
-import ButtonPreview from '@/components/ButtonPreview'
+import { devLog } from '@/lib/logger'
 
 Page.propTypes = {
   params: PropTypes.object,
@@ -17,15 +17,21 @@ Page.propTypes = {
 export default async function Page({ params }) {
   const { id } = await params
 
-  const selectedRoutine = workoutRoutines.find(({ id: routineId }) => id === routineId)
+  // const selectedRoutine = workoutRoutines.find(({ id: routineId }) => id === routineId)
 
-  const rawData = await getExercises()
+  const selectedRoutine = workoutRoutinesV2.find(({ id: routineId }) => id === routineId)
+
+  devLog('selectedRoutine', selectedRoutine)
+
+  const rawData = await getExercises(selectedRoutine.exercises)
+
+  devLog('rawData', rawData)
 
   if (!rawData) {
     notFound()
   }
 
-  const data = rawData.slice(0, 5)
+  const data = rawData.length > 10 ? rawData.slice(0, 5) : rawData
 
   return (
     <MainWrapper>
@@ -40,9 +46,6 @@ export default async function Page({ params }) {
           <ExerciseCard key={index} contentObj={obj} />
         ))}
       </div>
-
-      {/* Button Showcase */}
-      <ButtonPreview />
     </MainWrapper>
   )
 }

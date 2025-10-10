@@ -46,10 +46,20 @@ function reducer(state, action) {
   })
 }
 
-export function ExerciseTable() {
-  const [state, dispatch] = React.useReducer(reducer, initialSet)
+function initializeState(initial) {
+  devLog('initializeState - initial', initial)
 
-  devLog('state', state)
+  return Array.from({ length: initial.sets }, (_, i) => ({
+    reps: initial.reps,
+    isDone: false,
+    setNumber: i + 1,
+  }))
+}
+
+export function ExerciseTable({ sets = 3, reps = 10, restTime }) {
+  const [state, dispatch] = React.useReducer(reducer, { sets, reps }, initializeState)
+
+  devLog('ExerciseTable - state', state)
 
   const handleUpdateStatus = React.useCallback(({ id }) => {
     dispatch({ type: 'update-status', id })
@@ -66,8 +76,9 @@ export function ExerciseTable() {
         <TableBody>
           {state?.map((set, index) => (
             <ExerciseRow
-              key={set.id}
+              key={index}
               set={set}
+              setNumber={set.setNumber}
               className={`${index % 2 !== 0 && 'bg-base-200'}`}
               handleInputChange={handleInputChange}
               handleUpdateStatus={handleUpdateStatus}
