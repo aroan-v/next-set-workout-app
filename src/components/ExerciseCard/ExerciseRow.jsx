@@ -4,7 +4,7 @@ import { Input } from '../ui/input'
 import { Checkbox } from '../ui/checkbox'
 
 function ExerciseRow({ set, setNumber, handleInputChange, handleUpdateStatus, className }) {
-  const { weight, reps, isDone } = set
+  const { weight, reps, isDone, id } = set
 
   return (
     <TableRow className={`${className} overflow-hidden rounded-4xl`}>
@@ -15,9 +15,7 @@ function ExerciseRow({ set, setNumber, handleInputChange, handleUpdateStatus, cl
         <Input
           type={'number'}
           value={weight}
-          onChange={(e) =>
-            handleInputChange({ value: e.target.value, id: set.id, category: 'weight' })
-          }
+          onChange={(e) => handleInputChange({ value: e.target.value, id, category: 'weight' })}
         />
       </TableCell>
 
@@ -26,15 +24,13 @@ function ExerciseRow({ set, setNumber, handleInputChange, handleUpdateStatus, cl
         <Input
           type={'number'}
           value={reps}
-          onChange={(e) =>
-            handleInputChange({ value: e.target.value, id: set.id, category: 'reps' })
-          }
+          onChange={(e) => handleInputChange({ value: e.target.value, id, category: 'reps' })}
         />
       </TableCell>
 
       {/* Status Input */}
       <TableCell className={'rounded-r-4xl pr-4'}>
-        <Checkbox checked={isDone} onCheckedChange={() => handleUpdateStatus({ id: set.id })} />
+        <Checkbox checked={isDone} onCheckedChange={() => handleUpdateStatus({ id })} />
       </TableCell>
     </TableRow>
   )

@@ -4,6 +4,7 @@ import { produce } from 'immer'
 import { devLog } from '@/lib/logger'
 import ExerciseHeader from './ExerciseHeader'
 import ExerciseRow from './ExerciseRow'
+import { nanoid } from 'nanoid'
 
 const initialSet = [
   { id: 1, weight: 20, reps: 10, isDone: true },
@@ -53,6 +54,7 @@ function initializeState(initial) {
     reps: initial.reps,
     isDone: false,
     setNumber: i + 1,
+    id: nanoid(),
   }))
 }
 

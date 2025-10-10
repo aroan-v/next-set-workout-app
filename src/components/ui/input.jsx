@@ -12,7 +12,7 @@ function Input({ className, type, ...props }) {
         'w-full min-w-0 rounded-md py-1 text-center text-base md:text-sm',
 
         // ─── Colors & Background ────────────────────────────────
-        'dark:bg-input/30 border-input border bg-transparent file:bg-transparent',
+        'dark:bg-input/30 border-foreground/20 border bg-transparent file:bg-transparent',
         'text-foreground placeholder:text-muted-foreground file:text-foreground',
 
         // ─── File Input Styles ──────────────────────────────────

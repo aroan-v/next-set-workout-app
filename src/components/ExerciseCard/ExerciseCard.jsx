@@ -33,7 +33,7 @@ function ExerciseCard({ contentObj }) {
           <div className="text-md text-left text-wrap break-words">{name}</div>
 
           {/* Number of Sets */}
-          <div className="text-card-foreground/60 flex gap-2 text-left *:flex *:items-center *:gap-1">
+          <div className="text-card-foreground/60 flex gap-2 text-left text-xs *:flex *:items-center *:gap-1">
             <div className="">
               <Dumbbell /> {sets} sets
             </div>
