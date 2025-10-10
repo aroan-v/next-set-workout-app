@@ -6,6 +6,7 @@ import Image from 'next/image'
 import React from 'react'
 import { ExerciseTable } from './ExerciseTable'
 import { CircleChevronDown, CircleChevronUp } from 'lucide-react'
+import { Button } from '../ui/button'
 
 function ExerciseCard({ contentObj }) {
   devLog('contentObj', contentObj)
@@ -18,47 +19,44 @@ function ExerciseCard({ contentObj }) {
   const imageSrc = geGithubImage(image)
 
   return (
-    <div
-      className={cn(
-        `bg-base-200 flex w-full max-w-md min-w-sm flex-col overflow-hidden rounded-lg`
-      )}
-    >
-      {/* Header */}
-      <button onClick={() => setIsOpen((p) => !p)}>
-        <div className="flex h-fit w-full items-center rounded-lg">
-          {/* Content */}
-          <div className="relative flex h-full flex-1 flex-col justify-center gap-2 p-4">
-            {/* Exercise Name */}
-            <div className="text-md text-left">{name}</div>
+    <div className={cn(`bg-base-200 flex w-full max-w-md min-w-sm flex-col rounded-lg`)}>
+      {/* Header Button */}
+      <Button
+        className={'rounded-lg" flex h-fit w-full items-center'}
+        onClick={() => setIsOpen((p) => !p)}
+        size={'card'}
+        variant={'header'}
+      >
+        {/* Content */}
+        <div className="relative flex h-full flex-1 flex-col justify-center gap-2 p-4">
+          {/* Exercise Name */}
+          <div className="text-md text-left">{name}</div>
 
-            {/* Number of Sets */}
-            <div></div>
+          {/* Number of Sets */}
+          <div></div>
 
-            {/* Tags */}
-            <div className="flex flex-wrap gap-2">
-              {muscles.map((muscle, index) => (
-                <div
-                  className="text-primary w-fit gap-2 rounded-full border px-2 py-1 text-xs capitalize"
-                  key={muscle + index}
-                >
-                  {muscle}
-                </div>
-              ))}
-            </div>
-
-            {/* Chevron Icon */}
-            <div className="absolute right-2 -bottom-1">
-              {!isOpen && <CircleChevronDown className="size-4" />}
-              {isOpen && <CircleChevronUp className="size-4" />}
-            </div>
+          {/* Tags */}
+          <div className="flex flex-wrap gap-2">
+            {muscles.map((muscle, index) => (
+              <div
+                className="text-primary w-fit gap-2 rounded-full border px-2 py-1 text-xs capitalize"
+                key={muscle + index}
+              >
+                {muscle}
+              </div>
+            ))}
           </div>
 
-          {/* Image */}
-          <div className="relative h-30 w-40 shrink-0 overflow-hidden rounded-xl">
-            <ImageContainer imageSrc={imageSrc} name={name} />
+          {/* Chevron Icon */}
+          <div className="absolute right-2 -bottom-1">
+            {!isOpen && <CircleChevronDown className="size-4" />}
+            {isOpen && <CircleChevronUp className="size-4" />}
           </div>
         </div>
-      </button>
+
+        {/* Image */}
+        <ImageContainer imageSrc={imageSrc} name={name} />
+      </Button>
 
       {/* Table */}
       {isOpen && (
@@ -75,5 +73,11 @@ export default React.memo(ExerciseCard)
 function ImageContainer({ imageSrc, name }) {
   devLog('ImageContainer rendered')
 
-  return <Image src={imageSrc} alt={name} fill sizes="160px" className="object-cover" />
+  return (
+    <div className="flex h-30 items-center p-1">
+      <div className="relative h-full w-40 shrink-0 overflow-hidden rounded-lg">
+        <Image src={imageSrc} alt={name} fill sizes="160px" className="object-cover" />
+      </div>
+    </div>
+  )
 }

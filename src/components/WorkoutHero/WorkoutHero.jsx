@@ -1,6 +1,5 @@
 import { cn } from '@/lib/utils'
 import React from 'react'
-import { Card, CardImageContainer } from '../ui/card'
 import WorkoutStats from '../WorkoutStats'
 import Image from 'next/image'
 import { devLog } from '@/lib/logger'
@@ -12,7 +11,7 @@ function WorkoutHero({ contentObj, className }) {
 
   return (
     <section
-      className={cn('bg-base-200 relative flex h-50 w-full max-w-xl items-end p-8', className)}
+      className={cn('bg-base-200 relative flex h-50 w-full max-w-xl items-end p-6', className)}
     >
       <div className="relative z-20">
         {/* Workout Name */}

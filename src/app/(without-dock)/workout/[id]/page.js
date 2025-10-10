@@ -1,17 +1,14 @@
 // useClient because of the useEffect
-import DailyChallengeSection from '@/components/DailyChallengeSection'
 import ExerciseCard from '@/components/ExerciseCard'
 import MainWrapper from '@/components/MainWrapper'
 import PageHeader from '@/components/PageHeader'
-import SectionHeading from '@/components/SectionHeading'
-import SectionWrapper from '@/components/SectionWrapper'
 import { workoutRoutines } from '@/data/sampleData'
-import { devLog } from '@/lib/logger'
 import PropTypes from 'prop-types'
-import React, { use } from 'react'
+import React from 'react'
 import { notFound } from 'next/navigation'
 import { getExercises } from '@/lib/getExercises'
 import WorkoutHero from '@/components/WorkoutHero'
+import ButtonPreview from '@/components/ButtonPreview'
 
 Page.propTypes = {
   params: PropTypes.object,
@@ -19,11 +16,8 @@ Page.propTypes = {
 
 export default async function Page({ params }) {
   const { id } = await params
-  // const [data, setData] = React.useState(null)
 
   const selectedRoutine = workoutRoutines.find(({ id: routineId }) => id === routineId)
-
-  devLog('page fired')
 
   const rawData = await getExercises()
 
@@ -33,10 +27,6 @@ export default async function Page({ params }) {
 
   const data = rawData.slice(0, 5)
 
-  devLog('slug', id)
-
-  // ===== useClient disabled
-
   return (
     <MainWrapper>
       <PageHeader titleContent={'Workout'} href={'/workout'} />
@@ -44,12 +34,15 @@ export default async function Page({ params }) {
       {/* Exercise Hero Section */}
       <WorkoutHero contentObj={selectedRoutine} />
 
-      {/* ExerciseCard */}
-      <div className="flex flex-col gap-4 p-4">
+      {/* ExerciseCard Container*/}
+      <div className="flex w-full flex-col items-center gap-4 p-4">
         {data?.map((obj, index) => (
           <ExerciseCard key={index} contentObj={obj} />
         ))}
       </div>
+
+      {/* Button Showcase */}
+      <ButtonPreview />
     </MainWrapper>
   )
 }

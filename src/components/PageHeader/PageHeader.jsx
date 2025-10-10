@@ -1,7 +1,6 @@
 import React from 'react'
 import SectionWrapper from '../SectionWrapper'
 import Link from 'next/link'
-import { ChevronLeft } from 'lucide-react'
 import { SVGBackIcon } from '../SVGIcons'
 
 function PageHeader({ titleContent, href }) {
