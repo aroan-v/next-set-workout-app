@@ -64,6 +64,7 @@
   --color-ring: var(--color-info);
 
   --font-sans: var(--font-poppins, ui-sans-serif, system-ui, sans-serif);
+  --font-inter: var(--font-inter, ui-sans-serif, system-ui, sans-serif);
   --font-display: var(--font-yellowtail, ui-sans-serif, system-ui);
 }
 

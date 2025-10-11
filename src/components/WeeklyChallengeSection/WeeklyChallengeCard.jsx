@@ -16,6 +16,7 @@ function WeeklyChallengeCard() {
           src={'/images/weekly-challenges/weekly-challenge.jpg'}
           className="object-cover"
           fill
+          sizes="160px"
           alt=""
         />
       </div>

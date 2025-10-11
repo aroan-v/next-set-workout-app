@@ -6,12 +6,16 @@ import React from 'react'
 import { ExerciseTable } from './ExerciseTable'
 import { CircleChevronDown, CircleChevronUp, Clock, Dumbbell } from 'lucide-react'
 import { Button } from '../ui/button'
+import { formatRestTime } from '@/lib/formatRestTime'
 import ImageContainer from './ImageContainer'
+import Tag from '../Tag'
+import TagContainer from '../Tag/TagContainer'
 
 function ExerciseCard({ contentObj }) {
   devLog('contentObj', contentObj)
   const { id, images, name, primaryMuscles, secondaryMuscles, restTime, sets, reps } = contentObj
   const [isOpen, setIsOpen] = React.useState(false)
+  const [isWorkoutDone, setIsWorkoutDone] = React.useState(false)
 
   const image = images[0]
   const muscles = [...new Set([...primaryMuscles, ...secondaryMuscles])].slice(0, 3)
@@ -19,7 +23,12 @@ function ExerciseCard({ contentObj }) {
   const imageSrc = geGithubImage(image)
 
   return (
-    <div className={cn(`bg-base-200 flex w-full max-w-md min-w-sm flex-col rounded-lg`)}>
+    <div
+      className={cn(
+        `bg-base-200 border-neutral flex w-full max-w-md min-w-sm flex-col rounded-lg border-2`,
+        isWorkoutDone && 'opacity-70'
+      )}
+    >
       {/* Header Button */}
       <Button
         className={'flex w-full items-center overflow-hidden rounded-lg'}
@@ -39,21 +48,14 @@ function ExerciseCard({ contentObj }) {
             </div>
 
             <div className="">
-              <Clock /> Rest Timer: {restTime}
+              <Clock /> Rest Timer: {formatRestTime(restTime)}
             </div>
           </div>
 
           {/* Tags */}
-          <div className="flex flex-wrap gap-2">
-            {muscles.map((muscle, index) => (
-              <div
-                className="text-primary w-fit gap-2 rounded-full border px-2 py-1 text-xs capitalize"
-                key={muscle + index}
-              >
-                {muscle}
-              </div>
-            ))}
-          </div>
+          <TagContainer>
+            <Tag items={muscles} />
+          </TagContainer>
 
           {/* Chevron Icon */}
           <div className="absolute right-0 bottom-2">
@@ -63,15 +65,17 @@ function ExerciseCard({ contentObj }) {
         </div>
 
         {/* Image */}
-        <ImageContainer imageSrc={imageSrc} name={name} />
+        {imageSrc && <ImageContainer imageSrc={imageSrc} alt={name} />}
       </Button>
 
       {/* Table */}
-      {isOpen && (
-        <div className="bg-base-300 py-4">
-          <ExerciseTable sets={sets} reps={reps} restTime={restTime} />
-        </div>
-      )}
+      <ExerciseTable
+        setIsWorkoutDone={setIsWorkoutDone}
+        sets={sets}
+        reps={reps}
+        restTime={restTime}
+        isOpen={isOpen}
+      />
     </div>
   )
 }

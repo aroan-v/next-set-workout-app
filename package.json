@@ -15,6 +15,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "daisyui": "^5.1.27",
+    "date-fns": "^4.1.0",
     "eslint-plugin-react-hooks": "^7.0.0",
     "framer-motion": "^12.23.22",
     "immer": "^10.1.3",

@@ -5,6 +5,7 @@ import { devLog } from '@/lib/logger'
 import ExerciseHeader from './ExerciseHeader'
 import ExerciseRow from './ExerciseRow'
 import { nanoid } from 'nanoid'
+import useRestTimerStore from '@/store/useRestTimerStore'
 
 const initialSet = [
   { id: 1, weight: 20, reps: 10, isDone: true },
@@ -22,7 +23,9 @@ function reducer(state, action) {
           return
         }
 
-        setObj.isDone = !setObj.isDone
+        // Status toggling logic
+        const isDone = setObj.isDone
+        setObj.isDone = !isDone
         break
       }
 
@@ -34,11 +37,11 @@ function reducer(state, action) {
         }
 
         if (action.category === 'reps') {
-          setObj.reps = action.value
+          setObj.reps = Number(action.value)
         }
 
         if (action.category === 'weight') {
-          setObj.weight = action.value
+          setObj.weight = Number(action.value)
         }
 
         break
@@ -55,24 +58,52 @@ function initializeState(initial) {
     isDone: false,
     setNumber: i + 1,
     id: nanoid(),
+    weight: 0,
   }))
 }
 
-export function ExerciseTable({ sets = 3, reps = 10, restTime }) {
+export function ExerciseTable({ isOpen, sets = 3, reps = 10, restTime }) {
   const [state, dispatch] = React.useReducer(reducer, { sets, reps }, initializeState)
+  const setRestTimer = useRestTimerStore((s) => s.setRestTimer)
 
   devLog('ExerciseTable - state', state)
 
-  const handleUpdateStatus = React.useCallback(({ id }) => {
-    dispatch({ type: 'update-status', id })
-  }, [])
+  const dispatchWrapper = React.useCallback(
+    (args) => {
+      dispatch(args)
+      devLog('ExerciseTable - args', args)
 
-  const handleInputChange = React.useCallback(({ id, value, category }) => {
-    dispatch({ type: 'update-input', category, id, value })
-  }, [])
+      // Signals the RestTimerContainer to start the countdown
+      if (args.type === 'update-status' && args.status === false) {
+        devLog('fire zustand')
+
+        if (args.restTime > 0) setRestTimer(args.restTime)
+      }
+    },
+    [setRestTimer]
+  )
+
+  const handleUpdateStatus = React.useCallback(
+    ({ id, status }) => {
+      dispatchWrapper({ type: 'update-status', id, restTime, status })
+    },
+
+    [restTime, dispatchWrapper]
+  )
+
+  const handleInputChange = React.useCallback(
+    ({ id, value, category }) => {
+      dispatchWrapper({ type: 'update-input', category, id, value })
+    },
+    [dispatchWrapper]
+  )
+
+  if (!isOpen) {
+    return
+  }
 
   return (
-    <div className="text-card-foreground rounded-lg">
+    <div className="text-card-foreground bg-base-300 rounded-lg py-4">
       <Table>
         <ExerciseHeader />
         <TableBody>

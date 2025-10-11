@@ -1,37 +1,16 @@
-import Image from 'next/image'
 import React from 'react'
-import WorkoutStats from '../WorkoutStats'
-import Link from 'next/link'
-import { workoutRoutinesV2 } from '@/data/sampleData'
+import { workoutRoutines } from '@/data/sampleData'
+import RoutineCard from './RoutineCard'
+import { devLog } from '@/lib/logger'
 
 function WorkoutRoutinesSection() {
+  devLog('WorkoutRoutinesSection - workoutRoutines', workoutRoutines)
+
   return (
     <div className="flex max-w-lg flex-col gap-4 p-3">
       {/* Workout Card */}
-      {workoutRoutinesV2.map((obj, index) => (
-        <Link key={index} href={`/workout/${obj.id}`}>
-          <div className="bg-base-200 flex h-[110px] w-full overflow-hidden rounded-xl">
-            {/* Content */}
-            <div className="my-auto flex-1 p-6">
-              <div className="text-lg font-medium">{obj.name}</div>
-              <WorkoutStats
-                minutes={obj.minutes}
-                kCal={obj.kCal}
-                exercises={obj.exercises.length}
-              />
-            </div>
-
-            {/* Image Container */}
-            <div className="relative h-full w-[150px] overflow-hidden rounded-xl">
-              <Image
-                src={obj.src}
-                alt={obj.alt}
-                fill
-                className="absolute inset-0 h-full w-full scale-[1.01] object-cover"
-              />
-            </div>
-          </div>
-        </Link>
+      {workoutRoutines.map((obj, index) => (
+        <RoutineCard key={index} obj={obj} />
       ))}
     </div>
   )
