@@ -21,11 +21,11 @@ import { cn } from '@/lib/utils' // Assuming you have this utility for merging c
 // Define the class map outside the component to avoid re-creation on every render
 const variantClasses = {
   sm: {
-    container: 'text-xs max-w-2xs justify-between',
+    container: 'text-xs max-w-2xs ',
     icon: 'size-3',
   },
   lg: {
-    container: 'text-md gap-4 ',
+    container: 'text-md  ',
     icon: 'size-5',
   },
 }
@@ -34,7 +34,7 @@ function WorkoutStats({ minutes, kCal, exercises, variant = 'sm' }) {
   const { container, icon } = variantClasses[variant] || variantClasses.sm
 
   return (
-    <div className={cn('flex w-full flex-wrap *:flex *:items-center *:gap-1', container)}>
+    <div className={cn('flex w-full flex-wrap gap-4 *:flex *:items-center *:gap-1', container)}>
       {minutes && (
         <div>
           {/* Use the dynamic icon size */}

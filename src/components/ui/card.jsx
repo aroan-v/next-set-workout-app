@@ -9,7 +9,7 @@ function Card({ className, ...props }) {
     <div
       data-slot="card"
       className={cn(
-        'bg-base-300 flex w-[200px] shrink-0 flex-col overflow-hidden rounded-xl shadow-lg',
+        'bg-base-300 flex w-[200px] shrink-0 flex-col rounded-xl shadow-lg transition-all duration-300 hover:scale-101 active:scale-98',
         className
       )}
       {...props}
@@ -17,8 +17,8 @@ function Card({ className, ...props }) {
   )
 }
 
-function CardImageContainer({ className, orientation, src, alt, ...props }) {
-  if (!src || !alt) {
+function CardImageContainer({ className, orientation, sizes, src, alt, ...props }) {
+  if (!src || !alt || !sizes) {
     return
   }
 
@@ -33,7 +33,7 @@ function CardImageContainer({ className, orientation, src, alt, ...props }) {
       )}
       {...props}
     >
-      <Image src={src} fill className="object-cover" alt={alt} />
+      <Image src={src} fill className="rounded-xl object-cover" alt={alt} sizes={sizes} />
     </div>
   )
 }

@@ -5,14 +5,18 @@ import Image from 'next/image'
 import { devLog } from '@/lib/logger'
 
 function WorkoutHero({ contentObj, className }) {
-  const { src, name, alt, minutes, kCal, exercises } = contentObj
+  const { src, name, alt, minutes, kCal, exercises, isProgramSpecific } = contentObj
 
   const exercisesLength = exercises.length
   devLog('WorkoutHero - name', name)
+  devLog('WorkoutHero - isProgramSpecific', isProgramSpecific)
 
   return (
     <section
-      className={cn('bg-base-200 relative flex h-50 w-full max-w-xl items-end p-6', className)}
+      className={cn(
+        'bg-base-200 relative mx-auto flex h-50 w-full max-w-xl items-end p-6',
+        className
+      )}
     >
       <div className="relative z-20">
         {/* Workout Name */}

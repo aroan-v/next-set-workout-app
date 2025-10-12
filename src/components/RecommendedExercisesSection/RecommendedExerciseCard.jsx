@@ -1,8 +1,10 @@
 import React from 'react'
 import { devLog } from '@/lib/logger'
-import { Card, CardContent, CardImageContainer, CardTitle } from '../ui/card'
-import { SVGDurationIcon, SVGFireIcon } from '../SVGIcons'
 import PropTypes from 'prop-types'
+import { Card, CardContent, CardImageContainer, CardTitle } from '../ui/card'
+import Link from 'next/link'
+import WorkoutStats from '../WorkoutStats'
+import TagCategory from '../Tag/TagCategory'
 
 RecommendedExerciseCard.propTypes = {
   contentObject: PropTypes.shape({
@@ -33,36 +35,29 @@ export default function RecommendedExerciseCard({ contentObject }) {
 
   if (!contentObject) return
 
-  const { src = '', alt = '', title = '', minutes = 0, kcal = 0 } = contentObject
+  const { src = '', alt = '', name = '', minutes = 0, id, kCal, category } = contentObject
 
-  if (!title) {
+  if (!name) {
     return
   }
 
   return (
-    <Card>
-      {/* Image */}
-      <CardImageContainer src={src} alt={alt} />
+    <Link className="" href={`/workout/${id}`}>
+      <Card className={'relative w-[200px]'}>
+        {/* Image */}
+        <CardImageContainer src={src} alt={alt} sizes={'200px'} />
 
-      {/* Content */}
-      <CardContent>
-        <CardTitle>{title}</CardTitle>
+        {/* Content */}
+        <CardContent>
+          <CardTitle>{name}</CardTitle>
 
-        {/* Stats */}
-        <div className="flex justify-between text-xs *:flex *:items-center *:gap-1">
-          {/* Duration */}
-          <div>
-            <SVGDurationIcon className={'size-3'} />
-            {minutes} Minutes
-          </div>
+          {/* Stats */}
+          <WorkoutStats minutes={minutes} kCal={kCal} />
 
-          {/* Kcal */}
-          <div>
-            <SVGFireIcon className={'size-3'} />
-            {kcal} kCal
-          </div>
-        </div>
-      </CardContent>
-    </Card>
+          {/* Tag */}
+          <TagCategory variant="accent">{category}</TagCategory>
+        </CardContent>
+      </Card>
+    </Link>
   )
 }

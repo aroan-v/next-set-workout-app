@@ -1,9 +1,8 @@
+import React from 'react'
 import {
   Card,
   CardAction,
-  CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardImageContainer,
   CardTitle,
@@ -20,7 +19,7 @@ export default function ArticleCard({ objContent = {} }) {
   return (
     <Card className={''}>
       {/* Image Container */}
-      {src && alt && <CardImageContainer src={src} alt={alt} />}
+      {src && alt && <CardImageContainer src={src} alt={alt} sizes={'200px'} />}
 
       <CardHeader className={'flex-1'}>
         {/* Category and Date */}

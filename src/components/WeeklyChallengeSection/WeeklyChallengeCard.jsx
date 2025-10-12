@@ -1,13 +1,20 @@
 import Image from 'next/image'
 import React from 'react'
 
+import { workoutChallenges } from '@/data/sampleData'
+import { devLog } from '@/lib/logger'
+
 function WeeklyChallengeCard() {
+  const data = workoutChallenges[0]
+  devLog('WeeklyChallengeCard - data', data)
+
+  const { title: name } = data
+
   return (
     <div className="bg-base-200 mx-auto flex h-30 w-full max-w-sm overflow-clip rounded-xl shadow-lg">
       {/* Title Container */}
       <div className="flex flex-1 flex-col justify-center p-4 text-center">
-        <h2 className="text-lg font-medium">Weekly Challenge</h2>
-        <p className="text-secondary text-lg sm:text-xl">Plank with Hip Thrust</p>
+        <p className="text-lg font-bold sm:text-xl">{name}</p>
       </div>
 
       {/* Image Container */}

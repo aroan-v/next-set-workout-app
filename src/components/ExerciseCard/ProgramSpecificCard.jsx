@@ -11,12 +11,11 @@ import ImageContainer from './ImageContainer'
 import Tag from '../Tag'
 import TagContainer from '../Tag/TagContainer'
 
-function ExerciseCard({ contentObj }) {
+function ProgramSpecificCard({ contentObj }) {
   devLog('contentObj', contentObj)
   const { id, images, name, instructions, primaryMuscles, secondaryMuscles, restTime, sets, reps } =
     contentObj
   const [isOpen, setIsOpen] = React.useState(false)
-  const [isInstructionsOpen, setIsInstructionsOpen] = React.useState(true)
   const [isWorkoutDone, setIsWorkoutDone] = React.useState(false)
 
   const image = images[0]
@@ -85,4 +84,4 @@ function ExerciseCard({ contentObj }) {
   )
 }
 
-export default React.memo(ExerciseCard)
+export default React.memo(ProgramSpecificCard)

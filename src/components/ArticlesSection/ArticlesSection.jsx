@@ -52,7 +52,7 @@ function ArticlesSection() {
     <SectionWrapper as="section">
       <SectionHeading content={'Articles & Tips'} />
 
-      <SectionContent>
+      <SectionContent className={'overflow-x-scroll'}>
         {articlesData.map((obj, index) => (
           <ArticleCard key={index} objContent={obj} />
         ))}

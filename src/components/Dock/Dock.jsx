@@ -34,11 +34,11 @@ function Dock() {
         </button>
 
         <button
-          onClick={() => handleClick({ id: 'profile' })}
-          className={cn(lastSelected === 'profile' && 'ds-dock-active')}
+          onClick={() => handleClick({ id: 'nutrition' })}
+          className={cn(lastSelected === 'Nutrition' && 'ds-dock-active')}
         >
           <UserCog size={22} />
-          <span className="ds-dock-label">Profile</span>
+          <span className="ds-dock-label">Nutrition</span>
         </button>
       </div>
     </DaisyWrapper>

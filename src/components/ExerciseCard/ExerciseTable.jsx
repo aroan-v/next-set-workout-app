@@ -6,6 +6,7 @@ import ExerciseHeader from './ExerciseHeader'
 import ExerciseRow from './ExerciseRow'
 import { nanoid } from 'nanoid'
 import useRestTimerStore from '@/store/useRestTimerStore'
+import ExerciseInstructions from './ExerciseInstructions'
 
 const initialSet = [
   { id: 1, weight: 20, reps: 10, isDone: true },
@@ -62,7 +63,7 @@ function initializeState(initial) {
   }))
 }
 
-export function ExerciseTable({ isOpen, sets = 3, reps = 10, restTime }) {
+export function ExerciseTable({ isOpen, instructions, sets = 3, reps = 10, restTime }) {
   const [state, dispatch] = React.useReducer(reducer, { sets, reps }, initializeState)
   const setRestTimer = useRestTimerStore((s) => s.setRestTimer)
 
@@ -103,7 +104,9 @@ export function ExerciseTable({ isOpen, sets = 3, reps = 10, restTime }) {
   }
 
   return (
-    <div className="text-card-foreground bg-base-300 rounded-lg py-4">
+    <div className="text-card-foreground bg-base-300 space-y-4 rounded-lg py-4">
+      <ExerciseInstructions instructions={instructions} />
+
       <Table>
         <ExerciseHeader />
         <TableBody>

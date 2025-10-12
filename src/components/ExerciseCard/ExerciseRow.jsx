@@ -9,8 +9,8 @@ function ExerciseRow({ set, setNumber, handleInputChange, handleUpdateStatus, cl
   const { weight, reps, isDone, id } = set
 
   return (
-    <TableRow className={`${className} overflow-hidden rounded-4xl`}>
-      <TableCell className="rounded-l-4xl pl-4 font-medium">{setNumber}</TableCell>
+    <TableRow className={`${className} overflow-hidden rounded-xl`}>
+      <TableCell className="rounded-l-xl pl-4 font-medium">{setNumber}</TableCell>
 
       {/* Weight */}
       <TableCell>
@@ -31,7 +31,7 @@ function ExerciseRow({ set, setNumber, handleInputChange, handleUpdateStatus, cl
       </TableCell>
 
       {/* Status Input */}
-      <TableCell className={'rounded-r-4xl pr-4'}>
+      <TableCell className={'rounded-r-xl pr-4'}>
         <Checkbox
           checked={isDone}
           onCheckedChange={() => handleUpdateStatus({ id, status: isDone })}

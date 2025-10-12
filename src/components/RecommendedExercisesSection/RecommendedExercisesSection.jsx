@@ -3,34 +3,23 @@ import SectionWrapper from '../SectionWrapper'
 import RecommendedExerciseCard from './RecommendedExerciseCard'
 import SectionHeading from '../SectionHeading'
 import SectionContent from '../SectionWrapper/SectionContent'
-
-export const exercises = [
-  {
-    src: '/images/exercises/squat-exercise.jpg',
-    alt: 'Person performing a squat exercise',
-    title: 'Squat Exercise',
-    minutes: 12,
-    kcal: 120,
-  },
-  {
-    src: '/images/exercises/full-body-stretching.jpg',
-    alt: 'Person performing a full body stretching',
-    title: 'Full Body Stretching',
-    minutes: 10,
-    kcal: 100,
-  },
-]
+import { workoutRoutines } from '@/data/sampleData'
+import { devLog } from '@/lib/logger'
 
 function RecommendedExercisesSection() {
+  const recommendedWorkouts = workoutRoutines.filter(({ featured }) => featured)
+
+  devLog('recommendedWorkouts', recommendedWorkouts)
+
   return (
-    <SectionWrapper as="section">
+    <SectionWrapper as="section" className="">
       <SectionHeading content={'Recommendations'} />
 
       {/* Exercise Cards */}
 
-      <SectionContent>
-        {exercises.map((obj) => (
-          <RecommendedExerciseCard contentObject={obj} key={obj.title} />
+      <SectionContent className={'gap-4 border'}>
+        {recommendedWorkouts.map((obj, index) => (
+          <RecommendedExerciseCard contentObject={obj} key={obj.id + index} />
         ))}
       </SectionContent>
     </SectionWrapper>

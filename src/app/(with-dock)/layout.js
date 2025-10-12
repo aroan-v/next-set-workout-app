@@ -1,7 +1,6 @@
 import React from 'react'
 import { Poppins, Inter } from 'next/font/google'
 import '@/app/globals.css'
-import Dock from '@/components/Dock'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -24,7 +23,8 @@ export default function RootLayout({ children }) {
     <html className={`${poppins.variable} ${inter.variable} antialiased`} lang="en">
       <body>
         {children}
-        <Dock />
+
+        {/* <DockV2 /> */}
       </body>
     </html>
   )
