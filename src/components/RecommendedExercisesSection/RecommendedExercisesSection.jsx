@@ -17,7 +17,7 @@ function RecommendedExercisesSection() {
 
       {/* Exercise Cards */}
 
-      <SectionContent className={'gap-4 border'}>
+      <SectionContent className={'gap-4'}>
         {recommendedWorkouts.map((obj, index) => (
           <RecommendedExerciseCard contentObject={obj} key={obj.id + index} />
         ))}

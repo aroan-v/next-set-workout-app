@@ -490,6 +490,23 @@ export const workoutRoutines = [
   },
 ]
 
+export const loremContent = {
+  oneParagraph: [
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae justo vel magna cursus euismod. Donec in sem ac nisl ultrices pretium. Curabitur porttitor ante ut leo accumsan, sed mattis eros lacinia.',
+  ],
+
+  twoParagraphs: [
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet eros vel purus fermentum tincidunt. Cras aliquam, odio at egestas dignissim, magna lacus lacinia purus, sit amet malesuada justo odio vel erat.',
+    'Integer bibendum, orci ac malesuada sodales, sapien justo condimentum ex, vel fringilla erat nisi sed risus. Suspendisse potenti. Vivamus sed arcu ut justo vehicula tincidunt non ac turpis.',
+  ],
+
+  threeParagraphs: [
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus imperdiet erat a nisl iaculis, in suscipit metus tristique. Etiam a dolor a urna luctus ullamcorper non nec purus.',
+    'Proin sed sapien vel lorem egestas aliquet. Sed sit amet velit id turpis suscipit feugiat. Integer congue, neque sit amet egestas tempor, lacus lacus dictum nisi, vel tincidunt justo metus nec odio.',
+    'Duis nec sapien ac orci pharetra tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec in ligula at risus vestibulum porta sit amet a justo.',
+  ],
+}
+
 export const workoutChallenges = [
   {
     id: 'the-spartan-core-challenge',

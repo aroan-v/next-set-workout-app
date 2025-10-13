@@ -1,6 +1,7 @@
 import React from 'react'
 import { Poppins, Inter } from 'next/font/google'
 import '@/app/globals.css'
+import NavBar from '@/components/NavBar'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
   return (
     <html className={`${poppins.variable} ${inter.variable} antialiased`} lang="en">
       <body>
+        <NavBar />
         {children}
 
         {/* <DockV2 /> */}

@@ -4,6 +4,7 @@ import PageHeader from '@/components/PageHeader'
 import RecommendedExercisesSection from '@/components/RecommendedExercisesSection'
 import WeeklyChallengeSection from '@/components/WeeklyChallengeSection'
 import HeroSection from '@/components/HeroSection'
+import RecipeSection from '@/components/RecipeSection'
 
 export default function HomePage() {
   return (
@@ -12,6 +13,7 @@ export default function HomePage() {
       <HeroSection />
       <RecommendedExercisesSection />
       <WeeklyChallengeSection />
+      <RecipeSection />
       <ArticlesSection />
     </main>
   )
