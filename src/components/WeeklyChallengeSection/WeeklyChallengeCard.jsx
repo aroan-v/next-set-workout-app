@@ -59,8 +59,17 @@ function WeeklyChallengeCard() {
   const { title: name, goal } = data
 
   return (
-    <div className="relative z-10 mx-auto flex w-3/4 max-w-2xl flex-col items-center overflow-clip rounded-lg text-left shadow-lg">
+    <div
+      className={cn(
+        'relative z-10 mx-auto flex w-3/4 max-w-2xl flex-col items-center overflow-clip rounded-lg text-left shadow-lg md:min-h-30',
+
+        // Medium
+        'md:flex-row-reverse'
+      )}
+    >
       {/* Image allocation */}
+
+      {/* Image container */}
       <div
         className={cn(
           'relative',
@@ -68,36 +77,22 @@ function WeeklyChallengeCard() {
           // Mobile
           'w-full',
 
-          // Small breakpoint
-          'sm:w-[30%]'
+          'h-30 border md:w-[30%]'
         )}
       >
-        {/* Image container */}
-        <div
-          className={cn(
-            'relative mx-auto',
-
-            // Mobile
-            // 'top-1/2 left-1/2 w-full -translate-y-1/2',
-            // 'left-1/2 w-[70%] -translate-x-1/2',
-            'aspect-video w-full',
-
-            // Small breakpoint
-            'sm:absolute sm:-left-5'
-          )}
-        >
-          {/* Image Container */}
-          <Image
-            src={'/images/weekly-challenges/weekly-challenge.jpg'}
-            className="object-cover"
-            fill
-            alt=""
-          />
-        </div>
+        {/* Image Container */}
+        <Image
+          src={'/images/weekly-challenges/weekly-challenge.jpg'}
+          className="object-cover"
+          fill
+          alt=""
+        />
       </div>
 
+      <div className="h-full border">Test</div>
+
       {/*Content Container */}
-      <div className="bg-accent relative z-10 flex w-full flex-1 flex-col items-center justify-center space-y-1 py-4 text-center">
+      <div className="bg-accent flex w-full flex-1 flex-col items-center justify-center space-y-1 text-center md:h-full">
         <h2 className="text-xl font-bold sm:text-xl">{name}</h2>
 
         <p className="w-3/4 text-xs leading-tight">{goal}</p>

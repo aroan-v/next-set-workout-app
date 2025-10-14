@@ -490,6 +490,195 @@ export const workoutRoutines = [
   },
 ]
 
+export const recipeDirectory = [
+  // 1️⃣ French Toast
+  {
+    id: 'french-toast',
+    foodName: 'French Toast',
+    badges: ['5 Mins Prep Time', 'High Protein', 'Breakfast'],
+    ingredients: [
+      { food: 'White Bread', amount: 250, unit: 'g' },
+      { food: 'Eggs', amount: 2, unit: 'pcs' },
+      { food: 'Milk', amount: 120, unit: 'ml' },
+      { food: 'Butter', amount: 1, unit: 'tbsp' },
+      { food: 'Honey', amount: 1, unit: 'tbsp' },
+      { food: 'Cinnamon', amount: 0.5, unit: 'tsp' },
+    ],
+    description:
+      'A simple, protein-packed breakfast favorite. Crispy golden slices soaked in a light cinnamon-vanilla mix for a quick energy boost.',
+    instructions: [
+      'In a bowl, whisk together eggs, milk, honey, and cinnamon.',
+      'Dip bread slices into the mixture until coated evenly.',
+      'Heat a nonstick pan over medium heat and melt butter.',
+      'Cook each side for 2–3 minutes or until golden brown.',
+      'Serve warm with fruits or yogurt.',
+    ],
+    heroImage: 'https://images.pexels.com/photos/12091684/pexels-photo-12091684.png',
+    otherImages: ['/images/recipe/french-toast-1.jpg', '/images/recipe/french-toast-2.jpg'],
+    calories: 380,
+    macros: { protein: 22, carbs: 40, fat: 12 },
+    mealType: 'Breakfast',
+    difficulty: 'Easy',
+  },
+
+  // 2️⃣ Protein-Packed Power Bowl
+  {
+    foodName: 'Protein-Packed Power Bowl',
+    badges: ['15 Mins Prep Time', 'High Protein', 'Lunch'],
+    ingredients: [
+      { food: 'Quinoa', amount: 100, unit: 'g' },
+      { food: 'Grilled Chicken Breast', amount: 150, unit: 'g' },
+      { food: 'Avocado', amount: 0.5, unit: 'pc' },
+      { food: 'Cherry Tomatoes', amount: 5, unit: 'pcs' },
+      { food: 'Olive Oil', amount: 1, unit: 'tbsp' },
+      { food: 'Lemon Juice', amount: 1, unit: 'tbsp' },
+    ],
+    description:
+      'A balanced meal filled with lean protein, healthy fats, and complex carbs to refuel your body post-workout.',
+    instructions: [
+      'Cook quinoa according to package instructions.',
+      'Layer quinoa, chicken, avocado, and tomatoes in a bowl.',
+      'Drizzle with olive oil and lemon juice.',
+      'Season with salt and pepper to taste.',
+      'Serve fresh or chilled.',
+    ],
+    heroImage: '/images/recipe/protein-bowl.jpg',
+    otherImages: ['/images/recipe/protein-bowl-1.jpg', '/images/recipe/protein-bowl-2.jpg'],
+    calories: 510,
+    macros: { protein: 45, carbs: 42, fat: 18 },
+    mealType: 'Lunch',
+    difficulty: 'Easy',
+  },
+
+  // 3️⃣ Banana Oat Smoothie
+  {
+    foodName: 'Banana Oat Smoothie',
+    badges: ['5 Mins Prep Time', 'Under 300 Calories', 'Snack'],
+    ingredients: [
+      { food: 'Banana', amount: 1, unit: 'pc' },
+      { food: 'Rolled Oats', amount: 40, unit: 'g' },
+      { food: 'Whey Protein', amount: 1, unit: 'scoop' },
+      { food: 'Milk', amount: 200, unit: 'ml' },
+      { food: 'Honey', amount: 1, unit: 'tsp' },
+    ],
+    description: 'Creamy, energizing, and perfect for a quick refuel before or after workouts.',
+    instructions: [
+      'Combine all ingredients in a blender.',
+      'Blend until smooth and creamy.',
+      'Pour into a glass and serve chilled.',
+    ],
+    heroImage: '/images/recipe/banana-oat-smoothie.jpg',
+    otherImages: ['/images/recipe/banana-oat-smoothie-1.jpg'],
+    calories: 280,
+    macros: { protein: 23, carbs: 32, fat: 5 },
+    mealType: 'Snack',
+    difficulty: 'Easy',
+  },
+
+  // 4️⃣ Sweet Potato Chicken Mash
+  {
+    foodName: 'Sweet Potato Chicken Mash',
+    badges: ['High Protein', '30 Mins Prep Time', 'Dinner'],
+    ingredients: [
+      { food: 'Sweet Potato', amount: 250, unit: 'g' },
+      { food: 'Chicken Breast', amount: 150, unit: 'g' },
+      { food: 'Greek Yogurt', amount: 2, unit: 'tbsp' },
+      { food: 'Garlic', amount: 2, unit: 'cloves' },
+      { food: 'Olive Oil', amount: 1, unit: 'tbsp' },
+    ],
+    description:
+      'A hearty post-workout dinner packed with complex carbs and lean protein for recovery.',
+    instructions: [
+      'Boil sweet potatoes until tender and mash with Greek yogurt.',
+      'Grill chicken with olive oil and garlic until golden.',
+      'Serve chicken on top of the mash and garnish with herbs.',
+    ],
+    heroImage: '/images/recipe/sweet-potato-chicken.jpg',
+    otherImages: ['/images/recipe/sweet-potato-chicken-1.jpg'],
+    calories: 450,
+    macros: { protein: 38, carbs: 50, fat: 10 },
+    mealType: 'Dinner',
+    difficulty: 'Medium',
+  },
+
+  // 5️⃣ Greek Yogurt Parfait
+  {
+    foodName: 'Greek Yogurt Parfait',
+    badges: ['Under 200 Calories', 'No Cook', 'Breakfast'],
+    ingredients: [
+      { food: 'Greek Yogurt', amount: 150, unit: 'g' },
+      { food: 'Granola', amount: 30, unit: 'g' },
+      { food: 'Blueberries', amount: 50, unit: 'g' },
+      { food: 'Honey', amount: 1, unit: 'tsp' },
+    ],
+    description:
+      'Light, refreshing, and probiotic-rich snack perfect for mornings or late-night cravings.',
+    instructions: [
+      'Layer yogurt, granola, and blueberries in a glass.',
+      'Drizzle honey on top.',
+      'Chill for 5 minutes before serving.',
+    ],
+    heroImage: '/images/recipe/yogurt-parfait.jpg',
+    otherImages: ['/images/recipe/yogurt-parfait-1.jpg'],
+    calories: 190,
+    macros: { protein: 15, carbs: 25, fat: 3 },
+    mealType: 'Breakfast',
+    difficulty: 'Easy',
+  },
+
+  // 6️⃣ Tuna Egg Salad Wrap
+  {
+    foodName: 'Tuna Egg Salad Wrap',
+    badges: ['High Protein', 'Low Carb', 'Lunch'],
+    ingredients: [
+      { food: 'Tuna (Canned, in Water)', amount: 100, unit: 'g' },
+      { food: 'Boiled Eggs', amount: 2, unit: 'pcs' },
+      { food: 'Low-Fat Mayo', amount: 1, unit: 'tbsp' },
+      { food: 'Whole Wheat Tortilla', amount: 1, unit: 'pc' },
+      { food: 'Spinach', amount: 20, unit: 'g' },
+    ],
+    description:
+      'A satisfying wrap filled with protein and healthy fats — perfect for on-the-go meals.',
+    instructions: [
+      'Mash eggs and tuna together with mayo.',
+      'Spread on tortilla and top with spinach.',
+      'Wrap tightly and slice in half.',
+    ],
+    heroImage: '/images/recipe/tuna-egg-wrap.jpg',
+    otherImages: ['/images/recipe/tuna-egg-wrap-1.jpg'],
+    calories: 340,
+    macros: { protein: 30, carbs: 18, fat: 12 },
+    mealType: 'Lunch',
+    difficulty: 'Easy',
+  },
+
+  // 7️⃣ Baked Salmon with Veggies
+  {
+    foodName: 'Baked Salmon with Veggies',
+    badges: ['Omega-3 Rich', '30 Mins', 'Dinner'],
+    ingredients: [
+      { food: 'Salmon Fillet', amount: 150, unit: 'g' },
+      { food: 'Broccoli', amount: 100, unit: 'g' },
+      { food: 'Carrots', amount: 80, unit: 'g' },
+      { food: 'Olive Oil', amount: 1, unit: 'tbsp' },
+      { food: 'Lemon', amount: 1, unit: 'pc' },
+    ],
+    description: 'A wholesome, anti-inflammatory dinner rich in omega-3s and fiber.',
+    instructions: [
+      'Preheat oven to 200°C (400°F).',
+      'Season salmon with olive oil, salt, pepper, and lemon.',
+      'Bake for 20 minutes alongside veggies.',
+      'Serve hot with an extra squeeze of lemon.',
+    ],
+    heroImage: '/images/recipe/baked-salmon.jpg',
+    otherImages: ['/images/recipe/baked-salmon-1.jpg'],
+    calories: 430,
+    macros: { protein: 36, carbs: 15, fat: 25 },
+    mealType: 'Dinner',
+    difficulty: 'Medium',
+  },
+]
+
 export const loremContent = {
   oneParagraph: [
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae justo vel magna cursus euismod. Donec in sem ac nisl ultrices pretium. Curabitur porttitor ante ut leo accumsan, sed mattis eros lacinia.',
