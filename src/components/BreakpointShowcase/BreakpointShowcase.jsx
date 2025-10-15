@@ -122,7 +122,7 @@ export default function BreakpointShowcase() {
   const [showSizes, setShowSizes] = React.useState(true)
   const [showBreakpoints, setShowBreakpoints] = React.useState(true)
   const [breakpoint, setBreakpoint] = React.useState(undefined)
-  const [overflow, setOverflow] = React.useState(false)
+  const [overflow, setOverflow] = React.useState(true)
 
   // Effect to update the breakpoint state on resize
   React.useEffect(() => {

@@ -490,6 +490,48 @@ export const workoutRoutines = [
   },
 ]
 
+export const recipeFAQ = [
+  {
+    question: 'What are macros?',
+    answer:
+      'Macros are protein, carbohydrates, and fats — the three nutrients your body needs in large amounts for energy, recovery, and growth.',
+  },
+  {
+    question: 'How are the calories and macros calculated?',
+    answer:
+      'They’re based on standard nutritional databases and portion sizes. Small variations may occur depending on ingredient brands and cooking methods.',
+  },
+  {
+    question: 'Can I change portions or ingredients?',
+    answer:
+      'Yes! Recalculate macros by adjusting ingredient weights. Remember: protein = 4 kcal/g, carbs = 4 kcal/g, and fat = 9 kcal/g.',
+  },
+  {
+    question: 'When is the best time to eat this meal?',
+    answer:
+      'Pre-workout: moderate carbs + protein. Post-workout: higher protein + faster carbs. Cutting: earlier in the day when energy needs are higher.',
+  },
+  {
+    question: 'Can I substitute ingredients?',
+    answer:
+      'Absolutely! Swap within the same macro category — chicken ↔️ tofu (protein), rice ↔️ quinoa (carbs), olive oil ↔️ nuts (fats).',
+  },
+  {
+    question: 'How do I weigh food correctly?',
+    answer:
+      'Weigh ingredients consistently — raw or cooked, not both. For example, 100g raw chicken ≈ 75g cooked due to water loss.',
+  },
+]
+
+export const macroTooltips = {
+  calories:
+    'The total energy this meal provides. Burn more than you eat to lose weight — eat more than you burn to gain muscle.',
+  protein:
+    'The muscle builder. Repairs and grows muscle tissue after workouts and keeps you fuller for longer.',
+  fats: 'Supports hormone balance, brain health, and vitamin absorption. Essential for recovery and energy regulation.',
+  carbs: 'Your main energy source. Fuels your workouts, movement, and brain throughout the day.',
+}
+
 export const recipeDirectory = [
   // 1️⃣ French Toast
   {
