@@ -35,7 +35,7 @@ export default function ExplorePage() {
       <DailyChallengeSection />
 
       {/* Workouts Section */}
-      <SectionWrapper as="section">
+      <SectionWrapper className="border" as="section">
         <SectionHeading
           content={`Let's go Beginner!`}
           subheading={'Explore Different Workout Styles'}

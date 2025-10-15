@@ -10,6 +10,8 @@ import Link from 'next/link'
 import { recipeDirectory } from '@/data/sampleData'
 import { devLog } from '@/lib/logger'
 import RecipeCard from '../RecipeComponents/RecipeCard'
+import OverflowContainer from '../RightSideGradientOverlay/OverflowContainer'
+import RightSideGradientOverlay from '../RightSideGradientOverlay'
 
 function RecipeSection() {
   const data = recipeDirectory[0]
@@ -20,9 +22,11 @@ function RecipeSection() {
   const protein = macros.protein
 
   return (
-    <SectionWrapper as="section">
+    <SectionWrapper className="" as="section">
       <SectionHeading content={'Recipes'} href={'/recipes'} />
-      <SectionContent>
+
+      <SectionContent className={'flex-col gap-2'}>
+        {/* Recipe Main Card */}
         <div className="bg-base-200 grid items-center rounded-xl md:grid-cols-2">
           {/* Recipe Image */}
           <div
@@ -77,14 +81,19 @@ function RecipeSection() {
             </Button>
           </div>
         </div>
-      </SectionContent>
 
-      {/* Other recipes */}
-      <div className="flex gap-4 overflow-scroll">
-        {recipeArray.map((data, index) => (
-          <RecipeCard key={index} data={data} />
-        ))}
-      </div>
+        <div className="relative">
+          {/* Other recipes */}
+          <OverflowContainer>
+            {recipeArray.map((data, index) => (
+              <RecipeCard key={index} data={data} />
+            ))}
+          </OverflowContainer>
+
+          {/* Right Side Gradient Over */}
+          <RightSideGradientOverlay />
+        </div>
+      </SectionContent>
     </SectionWrapper>
   )
 }

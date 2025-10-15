@@ -5,6 +5,8 @@ import SectionHeading from '../SectionHeading'
 import SectionContent from '../SectionWrapper/SectionContent'
 import { featuredWorkouts } from '@/data/sampleData'
 import { devLog } from '@/lib/logger'
+import RightSideGradientOverlay from '../RightSideGradientOverlay'
+import OverflowContainer from '../RightSideGradientOverlay/OverflowContainer'
 
 function RecommendedExercisesSection() {
   const recommendedWorkouts = [...featuredWorkouts]
@@ -12,15 +14,19 @@ function RecommendedExercisesSection() {
   devLog('recommendedWorkouts', recommendedWorkouts)
 
   return (
-    <SectionWrapper as="section" className="">
+    <SectionWrapper as="section" className="*:px-8">
       <SectionHeading content={'Recommended Exercises'} />
 
       {/* Exercise Cards */}
+      <SectionContent className={'relative !pr-0'}>
+        <OverflowContainer>
+          {recommendedWorkouts.map((obj, index) => (
+            <RecommendedExerciseCard contentObject={obj} key={obj.id + index} />
+          ))}
+        </OverflowContainer>
 
-      <SectionContent className={'gap-4 overflow-x-scroll py-4'}>
-        {recommendedWorkouts.map((obj, index) => (
-          <RecommendedExerciseCard contentObject={obj} key={obj.id + index} />
-        ))}
+        {/* Right Side Gradient Over */}
+        <RightSideGradientOverlay />
       </SectionContent>
     </SectionWrapper>
   )
