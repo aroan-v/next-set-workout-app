@@ -9,7 +9,7 @@ function Card({ className, ...props }) {
     <div
       data-slot="card"
       className={cn(
-        'bg-base-300 flex w-[200px] shrink-0 flex-col rounded-xl shadow-lg transition-all duration-300 hover:scale-101 active:scale-98',
+        'bg-base-300 hover:shadow-primary/50 flex w-[200px] shrink-0 flex-col rounded-xl transition-all duration-300 hover:scale-101 hover:shadow-md active:scale-98',
         className
       )}
       {...props}
@@ -27,13 +27,15 @@ function CardImageContainer({ className, orientation, sizes, src, alt, ...props 
   return (
     <div
       className={cn(
-        'relative aspect-video',
+        'relative aspect-video overflow-clip',
         orientation === 'square' && 'aspect-square',
         className
       )}
       {...props}
     >
       <Image src={src} fill className="rounded-xl object-cover" alt={alt} sizes={sizes} />
+
+      <div className="from-base-200 absolute -bottom-10 h-3/5 w-full bg-gradient-to-t to-transparent" />
     </div>
   )
 }
@@ -55,7 +57,7 @@ function CardTitle({ className, ...props }) {
   return (
     <div
       data-slot="card-title"
-      className={cn('text-primary text-sm leading-none font-semibold', className)}
+      className={cn('text-primary truncate text-sm leading-none font-semibold', className)}
       {...props}
     />
   )

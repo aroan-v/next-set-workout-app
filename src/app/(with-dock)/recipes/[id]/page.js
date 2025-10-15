@@ -45,6 +45,12 @@ export default async function RecipePage({ params }) {
 
       {/* Content */}
       <SectionContent className={'mx-auto max-w-4xl flex-col gap-4 pt-10 *:space-y-2 *:p-2'}>
+        {/* Macro Stats */}
+        <div className="space-y-2 p-4">
+          <h2 className="text-xl font-bold">Macros for this serving</h2>
+          <NutritionFactsSection protein={protein} calories={calories} fat={fat} carbs={carbs} />
+        </div>
+
         {/* Introduction + Ingredients Container */}
         <div className="flex flex-col gap-4 rounded-lg *:rounded-lg *:p-4 sm:flex-row sm:gap-4">
           {/* Food Details */}
@@ -80,12 +86,6 @@ export default async function RecipePage({ params }) {
               <li key={index + item}>{item}</li>
             ))}
           </ol>
-        </div>
-
-        {/* Macro Stats */}
-        <div className="space-y-2 p-4">
-          <h2 className="text-xl font-bold">Macros for this serving</h2>
-          <NutritionFactsSection protein={protein} calories={calories} fat={fat} carbs={carbs} />
         </div>
 
         {/* FAQ */}

@@ -3,21 +3,21 @@ import SectionWrapper from '../SectionWrapper'
 import RecommendedExerciseCard from './RecommendedExerciseCard'
 import SectionHeading from '../SectionHeading'
 import SectionContent from '../SectionWrapper/SectionContent'
-import { workoutRoutines } from '@/data/sampleData'
+import { featuredWorkouts } from '@/data/sampleData'
 import { devLog } from '@/lib/logger'
 
 function RecommendedExercisesSection() {
-  const recommendedWorkouts = workoutRoutines.filter(({ featured }) => featured)
+  const recommendedWorkouts = [...featuredWorkouts]
 
   devLog('recommendedWorkouts', recommendedWorkouts)
 
   return (
     <SectionWrapper as="section" className="">
-      <SectionHeading content={'Recommendations'} />
+      <SectionHeading content={'Recommended Exercises'} />
 
       {/* Exercise Cards */}
 
-      <SectionContent className={'gap-4'}>
+      <SectionContent className={'gap-4 overflow-x-scroll py-4'}>
         {recommendedWorkouts.map((obj, index) => (
           <RecommendedExerciseCard contentObject={obj} key={obj.id + index} />
         ))}

@@ -59,7 +59,7 @@ export default function RecipeStats({
       )}
     >
       <div>
-        <CountUp start={0} end={value} duration={2} />
+        <CountUp start={0} end={value} duration={4} />
         <span> {unit}</span>
       </div>
       <div className="-mt-1 text-lg">{children}</div>

@@ -177,6 +177,9 @@ export default function BreakpointShowcase() {
 
       {/* Display Sections */}
       <div className="space-y-8">
+        {/* Breakpoint Section */}
+        {showBreakpoints && breakpoint && <BreakpointsSection breakpoint={breakpoint} />}
+
         {showSizes && <BoxSizesShowcase overflow={overflow} />}
 
         {/* NEW Text Size Section */}

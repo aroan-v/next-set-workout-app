@@ -9,7 +9,7 @@ import { getExercises } from '@/lib/getExercises'
 import WorkoutHero from '@/components/WorkoutHero'
 import { devLog } from '@/lib/logger'
 import RestTimerContainer from '@/components/RestTimerContainer'
-import { workoutRoutines } from '@/data/sampleData'
+import { featuredWorkouts } from '@/data/sampleData'
 
 Page.propTypes = {
   params: PropTypes.object,
@@ -18,7 +18,7 @@ Page.propTypes = {
 export default async function Page({ params }) {
   const { id } = await params
 
-  const selectedRoutine = workoutRoutines.find(({ id: routineId }) => id === routineId)
+  const selectedRoutine = featuredWorkouts.find(({ id: routineId }) => id === routineId)
 
   devLog('selectedRoutine', selectedRoutine)
 

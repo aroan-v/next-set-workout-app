@@ -24,6 +24,12 @@ const variantClasses = {
     container: 'text-xs max-w-2xs ',
     icon: 'size-3',
   },
+
+  md: {
+    container: 'text-sm  ',
+    icon: 'size-4',
+  },
+
   lg: {
     container: 'text-md  ',
     icon: 'size-5',
@@ -38,7 +44,7 @@ function WorkoutStats({ minutes, kCal, exercises, variant = 'sm' }) {
       {minutes && (
         <div>
           {/* Use the dynamic icon size */}
-          <SVGDurationIcon className={cn(icon, 'text-white')} />
+          <SVGDurationIcon className={cn(icon, 'text-secondary')} />
           {minutes} minutes
         </div>
       )}
@@ -46,7 +52,7 @@ function WorkoutStats({ minutes, kCal, exercises, variant = 'sm' }) {
       {kCal && (
         <div>
           {/* Use the dynamic icon size */}
-          <SVGFireIcon className={cn(icon, 'text-white')} />
+          <SVGFireIcon className={cn(icon, 'text-red-400')} />
           {kCal.toLocaleString()} kCal
         </div>
       )}

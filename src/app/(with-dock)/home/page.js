@@ -9,7 +9,7 @@ import BreakpointShowcase from '@/components/BreakpointShowcase'
 
 export default function HomePage() {
   return (
-    <main className="bg-base-100 relative mx-auto flex h-full min-h-screen w-full max-w-4xl flex-col gap-12 overflow-clip">
+    <main className="bg-base-100 relative mx-auto flex h-full min-h-screen w-full max-w-6xl flex-col gap-12 overflow-clip">
       <PageHeader titleContent={'Home'} />
       <HeroSection />
       <RecommendedExercisesSection />

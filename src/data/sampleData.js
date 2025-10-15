@@ -24,32 +24,11 @@ export const recommendedExercises = [
   },
 ]
 
-export const workoutRoutines = [
+export const featuredWorkouts = [
   // 1. FULL BODY WORKOUT (Bodyweight/Dumbbell Focus)
   {
     id: 'full-body-1',
-    name: 'Full Body A (Foundational)',
-    minutes: 45,
-    kCal: 700,
-    featured: true,
-    category: 'Beginner',
-    tags: [
-      { color: 'primary', content: 'Full Body' },
-      { color: 'neutral', content: 'Dumbbells' },
-    ],
-    exercises: [
-      { id: 'Goblet_Squat', sets: 3, reps: 12, rest: 75 },
-      { id: 'Pushups', sets: 3, reps: 10, rest: 60 },
-      { id: 'One-Arm_Dumbbell_Row', sets: 3, reps: 12, rest: 75 },
-      { id: 'Dumbbell_Shoulder_Press', sets: 3, reps: 10, rest: 60 },
-      { id: 'Plank', sets: 3, reps: '60s', rest: 45 },
-    ],
-    src: '/images/workout/routine-full-body-a.jpg',
-    alt: 'Full body foundational workout',
-  },
-  {
-    id: 'full-body-1',
-    name: 'Full Body A (Foundational)',
+    name: 'Full Body (Foundational)',
     minutes: 45,
     kCal: 700,
     featured: true,
@@ -283,7 +262,7 @@ export const workoutRoutines = [
       { id: 'Triceps_Pushdown', sets: 3, reps: 12, rest: 45 },
       { id: 'Cable_Crunch', sets: 3, reps: 15, rest: 30 },
     ],
-    src: '/images/workout/routine-bro-split.jpg',
+    src: 'https://images.pexels.com/photos/3839053/pexels-photo-3839053.jpeg',
     alt: 'Classic bodybuilding bro split routine',
   },
   {
@@ -303,7 +282,7 @@ export const workoutRoutines = [
       { id: 'Dumbbell_Bicep_Curl', sets: 3, reps: 12, rest: 60 },
       { id: 'Dips_-_Triceps_Version', sets: 3, reps: 12, rest: 60 },
     ],
-    src: '/images/workout/routine-ppl.jpg',
+    src: 'https://images.pexels.com/photos/20379185/pexels-photo-20379185.jpeg',
     alt: 'Push Pull Legs training split',
   },
   {
@@ -323,7 +302,7 @@ export const workoutRoutines = [
       { id: 'Smith_Machine_Overhead_Shoulder_Press', sets: 3, reps: 8, rest: 90 },
       { id: 'Pullups', sets: 3, reps: 10, rest: 60 },
     ],
-    src: '/images/workout/routine-full-body-novice.jpg',
+    src: 'https://images.pexels.com/photos/7479763/pexels-photo-7479763.jpeg',
     alt: 'Novice full body workout',
   },
   {
@@ -343,7 +322,7 @@ export const workoutRoutines = [
       { id: 'Romanian_Deadlift', sets: 3, reps: 10, rest: 120 },
       { id: 'Plank', sets: 3, reps: '60s', rest: 45 },
     ],
-    src: '/images/workout/routine-upper-lower.jpg',
+    src: 'https://images.pexels.com/photos/11800270/pexels-photo-11800270.jpeg',
     alt: 'Upper and lower body split',
   },
   {
@@ -363,7 +342,7 @@ export const workoutRoutines = [
       { id: 'Barbell_Rear_Delt_Row', sets: 4, reps: 8, rest: 90 },
       { id: 'Smith_Machine_Overhead_Shoulder_Press', sets: 3, reps: 10, rest: 90 },
     ],
-    src: '/images/workout/routine-powerbuilding.jpg',
+    src: 'https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg',
     alt: 'Powerbuilding hybrid strength and size routine',
   },
 
@@ -384,7 +363,7 @@ export const workoutRoutines = [
       { id: 'Chin-Up', sets: 3, reps: 10, rest: 60 },
       { id: 'Alternate_Incline_Dumbbell_Curl', sets: 3, reps: 12, rest: 60 },
     ],
-    src: '/images/workout/routine-greyskull.jpg',
+    src: 'https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg',
     alt: 'Greyskull LP beginner linear progression routine',
   },
   {
@@ -426,7 +405,7 @@ export const workoutRoutines = [
       { id: 'Barbell_Bench_Press_-_Medium_Grip', sets: 5, reps: 5, rest: 120 },
       { id: 'Barbell_Rear_Delt_Row', sets: 5, reps: 5, rest: 90 },
     ],
-    src: '/images/workout/routine-stronglifts.jpg',
+    src: 'https://cdn.pixabay.com/photo/2023/08/30/17/04/athlete-8223797_1280.jpg',
     alt: 'StrongLifts 5x5 progressive overload program',
   },
   {
@@ -533,7 +512,7 @@ export const macroTooltips = {
 }
 
 export const recipeDirectory = [
-  // 1️⃣ French Toast
+  // 1️⃣ French Toast (UP-TO-DATE)
   {
     id: 'french-toast',
     foodName: 'French Toast',
@@ -563,8 +542,9 @@ export const recipeDirectory = [
     difficulty: 'Easy',
   },
 
-  // 2️⃣ Protein-Packed Power Bowl
+  // 2️⃣ Protein-Packed Power Bowl (ID and UNIT added)
   {
+    id: 'protein-packed-power-bowl',
     foodName: 'Protein-Packed Power Bowl',
     badges: ['15 Mins Prep Time', 'High Protein', 'Lunch'],
     ingredients: [
@@ -584,16 +564,16 @@ export const recipeDirectory = [
       'Season with salt and pepper to taste.',
       'Serve fresh or chilled.',
     ],
-    heroImage: '/images/recipe/protein-bowl.jpg',
-    otherImages: ['/images/recipe/protein-bowl-1.jpg', '/images/recipe/protein-bowl-2.jpg'],
+    heroImage: 'https://images.pexels.com/photos/10309473/pexels-photo-10309473.jpeg',
     calories: 510,
     macros: { protein: 45, carbs: 42, fat: 18 },
     mealType: 'Lunch',
     difficulty: 'Easy',
   },
 
-  // 3️⃣ Banana Oat Smoothie
+  // 3️⃣ Banana Oat Smoothie (ID and UNIT added)
   {
+    id: 'banana-oat-smoothie',
     foodName: 'Banana Oat Smoothie',
     badges: ['5 Mins Prep Time', 'Under 300 Calories', 'Snack'],
     ingredients: [
@@ -609,7 +589,7 @@ export const recipeDirectory = [
       'Blend until smooth and creamy.',
       'Pour into a glass and serve chilled.',
     ],
-    heroImage: '/images/recipe/banana-oat-smoothie.jpg',
+    heroImage: 'https://images.pexels.com/photos/556832/pexels-photo-556832.jpeg',
     otherImages: ['/images/recipe/banana-oat-smoothie-1.jpg'],
     calories: 280,
     macros: { protein: 23, carbs: 32, fat: 5 },
@@ -617,8 +597,9 @@ export const recipeDirectory = [
     difficulty: 'Easy',
   },
 
-  // 4️⃣ Sweet Potato Chicken Mash
+  // 4️⃣ Sweet Potato Chicken Mash (ID added)
   {
+    id: 'sweet-potato-chicken-mash',
     foodName: 'Sweet Potato Chicken Mash',
     badges: ['High Protein', '30 Mins Prep Time', 'Dinner'],
     ingredients: [
@@ -635,7 +616,7 @@ export const recipeDirectory = [
       'Grill chicken with olive oil and garlic until golden.',
       'Serve chicken on top of the mash and garnish with herbs.',
     ],
-    heroImage: '/images/recipe/sweet-potato-chicken.jpg',
+    heroImage: 'https://images.pexels.com/photos/17942954/pexels-photo-17942954.jpeg',
     otherImages: ['/images/recipe/sweet-potato-chicken-1.jpg'],
     calories: 450,
     macros: { protein: 38, carbs: 50, fat: 10 },
@@ -643,8 +624,9 @@ export const recipeDirectory = [
     difficulty: 'Medium',
   },
 
-  // 5️⃣ Greek Yogurt Parfait
+  // 5️⃣ Greek Yogurt Parfait (ID added)
   {
+    id: 'greek-yogurt-parfait',
     foodName: 'Greek Yogurt Parfait',
     badges: ['Under 200 Calories', 'No Cook', 'Breakfast'],
     ingredients: [
@@ -660,7 +642,7 @@ export const recipeDirectory = [
       'Drizzle honey on top.',
       'Chill for 5 minutes before serving.',
     ],
-    heroImage: '/images/recipe/yogurt-parfait.jpg',
+    heroImage: 'https://images.pexels.com/photos/128865/pexels-photo-128865.jpeg',
     otherImages: ['/images/recipe/yogurt-parfait-1.jpg'],
     calories: 190,
     macros: { protein: 15, carbs: 25, fat: 3 },
@@ -668,8 +650,9 @@ export const recipeDirectory = [
     difficulty: 'Easy',
   },
 
-  // 6️⃣ Tuna Egg Salad Wrap
+  // 6️⃣ Tuna Egg Salad Wrap (ID and UNIT added)
   {
+    id: 'tuna-egg-salad-wrap',
     foodName: 'Tuna Egg Salad Wrap',
     badges: ['High Protein', 'Low Carb', 'Lunch'],
     ingredients: [
@@ -686,7 +669,7 @@ export const recipeDirectory = [
       'Spread on tortilla and top with spinach.',
       'Wrap tightly and slice in half.',
     ],
-    heroImage: '/images/recipe/tuna-egg-wrap.jpg',
+    heroImage: 'https://images.pexels.com/photos/6544221/pexels-photo-6544221.jpeg',
     otherImages: ['/images/recipe/tuna-egg-wrap-1.jpg'],
     calories: 340,
     macros: { protein: 30, carbs: 18, fat: 12 },
@@ -694,8 +677,9 @@ export const recipeDirectory = [
     difficulty: 'Easy',
   },
 
-  // 7️⃣ Baked Salmon with Veggies
+  // 7️⃣ Baked Salmon with Veggies (ID and UNIT added)
   {
+    id: 'baked-salmon-with-veggies',
     foodName: 'Baked Salmon with Veggies',
     badges: ['Omega-3 Rich', '30 Mins', 'Dinner'],
     ingredients: [
@@ -712,7 +696,7 @@ export const recipeDirectory = [
       'Bake for 20 minutes alongside veggies.',
       'Serve hot with an extra squeeze of lemon.',
     ],
-    heroImage: '/images/recipe/baked-salmon.jpg',
+    heroImage: 'https://images.pexels.com/photos/5670958/pexels-photo-5670958.jpeg',
     otherImages: ['/images/recipe/baked-salmon-1.jpg'],
     calories: 430,
     macros: { protein: 36, carbs: 15, fat: 25 },

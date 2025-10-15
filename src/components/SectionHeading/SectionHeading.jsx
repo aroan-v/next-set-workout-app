@@ -1,8 +1,9 @@
 import { ChevronRight } from 'lucide-react'
 import React from 'react'
 import { Button } from '../ui/button'
+import Link from 'next/link'
 
-function SectionHeading({ content, subheading, handleSeeAll }) {
+function SectionHeading({ content, subheading, href }) {
   if (!content) {
     return
   }
@@ -10,14 +11,16 @@ function SectionHeading({ content, subheading, handleSeeAll }) {
   return (
     <div className="flex items-center justify-between">
       <div>
-        <h1 className="text-md text-primary font-medium">{content} </h1>
+        <h1 className="text-primary text-xl font-bold">{content} </h1>
         {subheading && <p className="text-sm capitalize">{subheading}</p>}
       </div>
 
-      {handleSeeAll && (
-        <Button variant={'ghost'} onClick={handleSeeAll} className="flex items-center text-sm">
-          See All
-          <ChevronRight />
+      {href && (
+        <Button variant={'ghost'} asChild className="flex items-center text-sm">
+          <Link href={href}>
+            See All
+            <ChevronRight />
+          </Link>
         </Button>
       )}
     </div>

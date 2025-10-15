@@ -6,62 +6,85 @@ import SectionContent from '../SectionWrapper/SectionContent'
 import { Button } from '../ui/button'
 import { CircleArrowRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import Tag from '../Tag'
 import Link from 'next/link'
+import { recipeDirectory } from '@/data/sampleData'
+import { devLog } from '@/lib/logger'
+import RecipeCard from '../RecipeComponents/RecipeCard'
 
 function RecipeSection() {
-  const id = 'french-toast'
+  const data = recipeDirectory[0]
+  const recipeArray = recipeDirectory.slice(1)
+  devLog('RecipeSection - data', data)
+
+  const { id, heroImage, alt = '', foodName, calories, macros, description } = data
+  const protein = macros.protein
+
   return (
     <SectionWrapper as="section">
-      <SectionHeading content={'Recipes'} />
-      <SectionContent className={'grid items-center md:grid-cols-2'}>
-        {/* Recipe Image */}
-        <div
-          className={cn(
-            'relative h-40 w-full overflow-clip rounded-lg border md:col-span-1',
-
-            // Medium Breakpoint
-            'h-80'
-          )}
-        >
-          <Image
-            src={'/images/recipe/protein-packed power bowl.jpg'}
-            alt={''}
-            fill
-            className="object-cover"
-          />
-        </div>
-
-        {/* Recipe Content */}
-        <div className="space-y-4 p-4">
-          <div className="space-y-2 text-center md:text-left">
-            {/* Food Name */}
-            <h2 className="text-lg font-bold">Protein-packed power bowl</h2>
-
-            <Tag items={['683 kCal', '596 protein']} />
-
-            {/* Description */}
-            <div className="space-y-2 text-sm">
-              <p>
-                A colorful protein-packed power bowl filled with flavorful, meaty grilled satay tofu
-                and an array of vibrant veggies on a bed of fluffy quinoa.
-              </p>
-              <p>
-                Completed with a healthy and delicious satay dipping sauce and crushed roasted
-                peanuts. Delicious!
-              </p>
-            </div>
+      <SectionHeading content={'Recipes'} href={'/recipes'} />
+      <SectionContent>
+        <div className="bg-base-200 grid items-center rounded-xl md:grid-cols-2">
+          {/* Recipe Image */}
+          <div
+            className={cn(
+              'relative h-40 w-full overflow-clip rounded-lg md:col-span-1',
+              // Medium Breakpoint
+              'md:h-80'
+            )}
+          >
+            <Image
+              src={heroImage}
+              alt={alt}
+              fill
+              className="object-cover"
+              sizes="(min-width: 768px) 412px, 100vw"
+            />
           </div>
 
-          {/* Action */}
-          <Button asChild className={''}>
-            <Link href={`/recipes/${id}`}>
-              Check recipe
-              <CircleArrowRight />
-            </Link>
-          </Button>
+          {/* Recipe Content */}
+          <div className="flex flex-col space-y-4 p-4">
+            <div className="space-y-2 text-center md:text-left">
+              {/* Food Name */}
+              <div className="text-lg font-bold md:text-3xl">{foodName}</div>
+
+              {/* Tags */}
+              <div className="flex flex-col items-center justify-center gap-1 md:flex-row md:justify-start md:gap-4 md:*:text-lg">
+                {/* Calories */}
+                <div className="text-primary flex items-center gap-1 leading-tight font-bold">
+                  <span className="text-foreground font-normal">Calories:</span>
+                  {calories}
+                  <span className="">kCal</span>
+                </div>
+
+                {/* Protein */}
+                <div className="text-secondary flex items-center gap-1 text-xs leading-tight font-bold">
+                  <span className="text-foreground font-normal">Protein:</span>
+                  {protein}
+                  <span className="">g</span>
+                </div>
+              </div>
+
+              {/* Description */}
+              <div className="space-y-2 text-sm">{description}</div>
+            </div>
+
+            {/* Action */}
+            <Button asChild className={''}>
+              <Link href={`/recipes/${id}`}>
+                Check recipe
+                <CircleArrowRight />
+              </Link>
+            </Button>
+          </div>
         </div>
       </SectionContent>
+
+      {/* Other recipes */}
+      <div className="flex gap-4 overflow-scroll">
+        {recipeArray.map((data, index) => (
+          <RecipeCard key={index} data={data} />
+        ))}
+      </div>
     </SectionWrapper>
   )
 }

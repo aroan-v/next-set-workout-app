@@ -43,18 +43,18 @@ export default function RecommendedExerciseCard({ contentObject }) {
 
   return (
     <Link className="" href={`/workout/${id}`}>
-      <Card className={'relative w-[200px]'}>
+      <Card className={'relative w-[300px]'}>
         {/* Image */}
         <CardImageContainer src={src} alt={alt} sizes={'200px'} />
 
         {/* Content */}
-        <CardContent>
+        <CardContent className={''}>
           <CardTitle>{name}</CardTitle>
 
           {/* Stats */}
-          <WorkoutStats minutes={minutes} kCal={kCal} />
+          <WorkoutStats minutes={minutes} variant="md" kCal={kCal} />
 
-          {/* Tag */}
+          {/* Floating Tag */}
           <TagCategory variant="accent">{category}</TagCategory>
         </CardContent>
       </Card>

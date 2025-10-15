@@ -2,7 +2,7 @@
 const nextConfig = {
   images: {
     // Add this:
-    domains: ['raw.githubusercontent.com', 'images.pexels.com'],
+    domains: ['raw.githubusercontent.com', 'images.pexels.com', 'cdn.pixabay.com'],
   },
   experimental: {
     // Tells Next.js to optimize imports from this package
